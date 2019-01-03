@@ -2,6 +2,7 @@ package com.company.gameConstante;
 
 public enum GameMode {
 
+    NONE(0),
     CHALLENGER(1),
     DEFENDER(2),
     DUAL(3);

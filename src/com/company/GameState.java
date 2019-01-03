@@ -14,6 +14,11 @@ public class GameState {
     public static GameMode modeChoosed;
 
     private GameState() {
-
+        gameChoosed = GameType.NONE;
+        modeChoosed = GameMode.NONE;
+    }
+    public static void reinitState() {
+        gameChoosed = GameType.NONE;
+        modeChoosed = GameMode.NONE;
     }
 }

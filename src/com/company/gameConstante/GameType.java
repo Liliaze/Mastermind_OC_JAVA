@@ -4,8 +4,10 @@ import java.util.Arrays;
 
 public enum GameType {
 
+    NONE(0),
     PLUS_AND_MINUS(1),
-    MASTERMIND(2);
+    MASTERMIND(2),
+    EXIT(3);
 
     private int gameNumber;
 

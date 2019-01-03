@@ -25,10 +25,14 @@ public class Menu {
         System.out.println("Which game do you want to play :");
         System.out.println(PLUS_AND_MINUS.getGameNumber() + ") SEARCH PLUS or MINUS, find the secretCode with plus and minus.");
         System.out.println(MASTERMIND.getGameNumber() + ") MASTERMIND, find the secretCode with mysterious indication.");
+        System.out.println(EXIT.getGameNumber() + ") to quit.");
         do {
             System.out.println(msgChoice);
             nbScan = scanInt();
-        } while ((GameState.gameChoosed = GameType.convertFromInt(nbScan)) == null);
+        } while ((GameState.gameChoosed = GameType.convertFromInt(nbScan)) == null && GameState.gameChoosed != GameType.NONE);
+        if (GameState.gameChoosed == EXIT) {
+            displayGoodBye();
+        }
     }
 
     private int scanInt() {
@@ -79,13 +83,20 @@ public class Menu {
         System.out.println("YOU ARE IN PLUS AND MINUS GAME - This is Rules");
     }
 */
-    public boolean again() {
+    public boolean againSameParty() {
+        return (again("Do you want play again to " + GameState.gameChoosed + " in mode " + GameState.modeChoosed + " ? (Y or N)"));
+    }
+
+    public boolean againChoiceGame() {
+        return (again("Do you want choose an another game ? Tape 'Y' to choose or 'N' to exit :"));
+    }
+
+    private boolean again(String msg) {
+        System.out.println(msg);
         char answerChar;
         do {
-            System.out.println("Do you want play again ? (Y or N)");
             answerChar = scanChar();
         } while (answerChar != 'Y' && answerChar != 'N' && answerChar != 'y' && answerChar != 'n');
-
         return (answerChar == 'Y' || answerChar == 'y');
     }
 
@@ -93,4 +104,5 @@ public class Menu {
         System.out.println("GOOD_BYE");
         System.exit(0);
     }
+
 }
