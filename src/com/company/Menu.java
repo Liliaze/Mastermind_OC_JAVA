@@ -6,7 +6,6 @@ import com.company.gameConstante.GameMode;
 import com.company.gameConstante.GameType;
 
 import static com.company.gameConstante.GameType.*;
-import static com.company.gameConstante.GameMode.*;
 
 
 public class Menu {
@@ -18,19 +17,21 @@ public class Menu {
     }
 
     private void displayGameChoice() {
-        String msgChoice = ("Please enter number " + PLUS_AND_MINUS.getGameNumber() + " for '" + PLUS_AND_MINUS +
-                "' or number "+ MASTERMIND.getGameNumber() + " for '" + MASTERMIND + "' : ");
+        StringBuilder msgChoice = new StringBuilder("Please enter number :" );
+        for (GameType game : GameType.values()) {
+            msgChoice.append(" - ").append(game.getNumber()).append(" for ").append(game);
+        }
         int nbScan;
 
         System.out.println("Which game do you want to play :");
-        System.out.println(PLUS_AND_MINUS.getGameNumber() + ") SEARCH PLUS or MINUS, find the secretCode with plus and minus.");
-        System.out.println(MASTERMIND.getGameNumber() + ") MASTERMIND, find the secretCode with mysterious indication.");
-        System.out.println(EXIT.getGameNumber() + ") to quit.");
+        for (GameType game : GameType.values()) {
+            System.out.println(game.getNumber() + ") " + game + " : " + game.getDescription());
+        }
         do {
             System.out.println(msgChoice);
             nbScan = scanInt();
-        } while ((GameState.gameChoosed = GameType.convertFromInt(nbScan)) == null && GameState.gameChoosed != GameType.NONE);
-        if (GameState.gameChoosed == EXIT) {
+        } while ((GameState.gameChoosed = GameType.convertFromInt(nbScan)) == null);
+        if (GameState.gameChoosed == GameType.EXIT) {
             displayGoodBye();
         }
     }
@@ -58,20 +59,25 @@ public class Menu {
 
 
     private void displayModeChoice() {
-        String msgChoice = ("Please enter number " + CHALLENGER.getModeNumber() + " for " + CHALLENGER + " or " +
-        DEFENDER.getModeNumber() + " for " + DEFENDER + " or " +
-        DUAL.getModeNumber() + " for " + DUAL + "." );
+        StringBuilder msgChoice = new StringBuilder("Please enter number :" );
+        for (GameMode mode : GameMode.values()) {
+            msgChoice.append(" - ").append(mode.getNumber()).append(" for ").append(mode);
+        }
         int nbScan;
 
         System.out.println("You choice '" + GameState.gameChoosed + "' game !");
         System.out.println("Please now choose your MODE : ");
-        System.out.println(CHALLENGER.getModeNumber() + ") " + CHALLENGER + " : xxxxxxx TO DO DSC" );
-        System.out.println(DEFENDER.getModeNumber() + ") " + DEFENDER + " : xxxxxxx TO DO DSC" );
-        System.out.println(DUAL.getModeNumber() + ") " + DUAL + " : xxxxxxx TO DO DSC" );
+        for (GameMode mode : GameMode.values()) {
+            System.out.println(mode.getNumber() + ") " + mode + " : " + mode.getDescription());
+        }
+
         do {
             System.out.println(msgChoice);
             nbScan = scanInt();
         } while ((GameState.modeChoosed = GameMode.convertFromInt(nbScan)) == null);
+        if (GameState.modeChoosed == GameMode.EXIT) {
+            displayGoodBye();
+        }
     }
 
 /*
@@ -83,15 +89,22 @@ public class Menu {
         System.out.println("YOU ARE IN PLUS AND MINUS GAME - This is Rules");
     }
 */
-    public boolean againSameParty() {
-        return (again("Do you want play again to " + GameState.gameChoosed + " in mode " + GameState.modeChoosed + " ? (Y or N)"));
-    }
 
-    public boolean againChoiceGame() {
-        return (again("Do you want choose an another game ? Tape 'Y' to choose or 'N' to exit :"));
-    }
+    public int again() {
+        String msg = "Make your choice :\n" +
+        "1) PLAY AGAIN\n" +
+        "2) MENU\n" +
+        "3) EXIT";
+        int answer;
 
-    private boolean again(String msg) {
+        do {
+            System.out.println(msg);
+            answer = scanInt();
+        } while (answer < 1 || answer > 3);
+        return answer;
+    }
+/*
+    private String again(String msg) {
         System.out.println(msg);
         char answerChar;
         do {
@@ -99,7 +112,7 @@ public class Menu {
         } while (answerChar != 'Y' && answerChar != 'N' && answerChar != 'y' && answerChar != 'n');
         return (answerChar == 'Y' || answerChar == 'y');
     }
-
+*/
     public void displayGoodBye() {
         System.out.println("GOOD_BYE");
         System.exit(0);

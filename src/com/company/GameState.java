@@ -14,11 +14,11 @@ public class GameState {
     public static GameMode modeChoosed;
 
     private GameState() {
-        gameChoosed = GameType.NONE;
-        modeChoosed = GameMode.NONE;
+        gameChoosed = GameType.EXIT;
+        modeChoosed = GameMode.EXIT;
     }
     public static void reinitState() {
-        gameChoosed = GameType.NONE;
-        modeChoosed = GameMode.NONE;
+        gameChoosed = GameType.EXIT;
+        modeChoosed = GameMode.EXIT;
     }
 }

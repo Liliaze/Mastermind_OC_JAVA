@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Menu menuGame = new Menu();
+        int again;
 
         do {
             GameState.reinitState();
@@ -11,8 +12,9 @@ public class Main {
             do {
                 System.out.println("TO DO : Launch a party");
                 System.out.println("TO DO : reinitParty variables");
-            } while (menuGame.againSameParty());
-        } while (menuGame.againChoiceGame());
+                again = menuGame.again();
+            } while (again == 1);
+        } while (again == 2);
         menuGame.displayGoodBye();
     }
 }
