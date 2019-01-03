@@ -1,15 +1,21 @@
 package com.company;
 
-import com.company.gameConstante.GameType;
-
 import java.util.Scanner;
 
+import com.company.gameConstante.GameMode;
+import com.company.gameConstante.GameType;
+
 import static com.company.gameConstante.GameType.*;
+import static com.company.gameConstante.GameMode.*;
 
 
 public class Menu {
-    public static GameType gameChoosed;
-    //public static GameChallenge challengeChoosed;
+
+    public void displayWelcomeMenu() {
+        System.out.println("Hello new Challenger, welcome in Boudy Game !");
+        displayGameChoice();
+        displayModeChoice();
+    }
 
     private void displayGameChoice() {
         String msgChoice = ("Please enter number " + PLUS_AND_MINUS.getGameNumber() + " for '" + PLUS_AND_MINUS +
@@ -22,7 +28,7 @@ public class Menu {
         do {
             System.out.println(msgChoice);
             nbScan = scanInt();
-        } while ((gameChoosed = GameType.convertFromInt(nbScan)) == null);
+        } while ((GameState.gameChoosed = GameType.convertFromInt(nbScan)) == null);
     }
 
     private int scanInt() {
@@ -46,37 +52,33 @@ public class Menu {
         return '0';
     }
 
-    public void displayWelcomeMenu() {
-        System.out.println("Hello new Challenger, welcome in Boudy Game !");
-        displayGameChoice();
-        displayChallengeChoice();/*
-        switch (gameChoosed) {
-            case PLUS_AND_MINUS:
-                displayPlusAndMinusMenu();
-                break;
-            case MASTERMIND:
-                displayMastermindMenu();
-                break;
-            default:
-                displayGoodBye();
-                break;
-        }*/
+
+    private void displayModeChoice() {
+        String msgChoice = ("Please enter number " + CHALLENGER.getModeNumber() + " for " + CHALLENGER + " or " +
+        DEFENDER.getModeNumber() + " for " + DEFENDER + " or " +
+        DUAL.getModeNumber() + " for " + DUAL + "." );
+        int nbScan;
+
+        System.out.println("You choice '" + GameState.gameChoosed + "' game !");
+        System.out.println("Please now choose your MODE : ");
+        System.out.println(CHALLENGER.getModeNumber() + ") " + CHALLENGER + " : xxxxxxx TO DO DSC" );
+        System.out.println(DEFENDER.getModeNumber() + ") " + DEFENDER + " : xxxxxxx TO DO DSC" );
+        System.out.println(DUAL.getModeNumber() + ") " + DUAL + " : xxxxxxx TO DO DSC" );
+        do {
+            System.out.println(msgChoice);
+            nbScan = scanInt();
+        } while ((GameState.modeChoosed = GameMode.convertFromInt(nbScan)) == null);
     }
 
-    private void displayChallengeChoice() {
-        System.out.println("YOU ARE IN '" + gameChoosed + "' GAME, ENJOY !");
-        System.out.println("TO DO : Possibilité de choisir un type de challenge");
+/*
+    private void displayMastermindRules() {
+        System.out.println("YOU ARE IN MASTERMIND GAME - This is Rules");
     }
 
-
-    private void displayMastermindMenu() {
-        System.out.println("YOU ARE IN MASTERMIND GAME");
+    private void displayPlusAndMinusRules() {
+        System.out.println("YOU ARE IN PLUS AND MINUS GAME - This is Rules");
     }
-
-    private void displayPlusAndMinusMenu() {
-        System.out.println("YOU ARE IN PLUS AND MINUS GAME");
-    }
-
+*/
     public boolean again() {
         char answerChar;
         do {
