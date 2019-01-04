@@ -2,7 +2,7 @@ package com.company.gameConstante;
 
 public enum GameType {
 
-    PLUS_AND_MINUS(1, "to do desc"),
+    PLUS_AND_MINUS(1, "\033[31m le plus et le mooins en couleur\033[0m"),
     MASTERMIND(2, "to do desc"),
     EXIT(3, "to quit this Boudy Game's");
 
@@ -18,6 +18,7 @@ public enum GameType {
         return this.gameNumber;
     }
     public String getDescription() { return this.description;}
+
     public static GameType convertFromInt(int nb) {
         for (GameType t : GameType.values()) {
             if (t.getNumber() == nb)
