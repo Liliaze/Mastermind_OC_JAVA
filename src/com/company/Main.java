@@ -6,11 +6,12 @@ public class Main {
         switch (GameState.gameChoosed) {
             case PLUS_AND_MINUS:
                 System.out.println("TO DO : implement Plus and Minus Rules");
+                Rules rules = new RulesPlusAndMinus();
                 switch (GameState.modeChoosed) {
                     case CHALLENGER:
                         System.out.println("TO DO : implement challenger");
-                        RoundGame newRound = new RoundGame(new PlayerHuman(), null, new PlayerIA(), new RulesPlusAndMinus());
-                        newRound.test();
+                        RoundGame newRound = new RoundGame(new PlayerHuman(rules, "JEAN"), null, new PlayerIA(rules, "MAITRE"), rules);
+                        newRound.startRound();
                         break;
                     case DEFENDER:
                         System.out.println("TO DO : implement defender");
