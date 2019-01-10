@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Scanner;
+
 import static com.company.gameConstante.GameColor.*;
 
 public class PlayerHuman extends Player {
@@ -16,7 +17,7 @@ public class PlayerHuman extends Player {
     @Override
     public int[] generateSecretCode() {
         System.out.println("my code is 1248");
-        return new int[] {1 ,2, 4, 8};
+        return new int[]{1, 2, 4, 8};
     }
 
     @Override
@@ -30,21 +31,23 @@ public class PlayerHuman extends Player {
     public void play() {
         System.out.println("secret code i search is : " + GameState.secretCodeInt);
         System.out.println("So, i'm propose :");
-        setProposition(scanInt());
-        while (propositionArray.length < GameState.nbEltInSecretCode) {
-            setProposition(scanInt());
-        }
+        String str;
+        do {
+            str = scanString();
+        } while (!checkSecretCodeFormatFromString(str));
+        setProposition(str);
     }
 
-    private int scanInt() {
-        System.out.println("scan here");
+    private String scanString() {
         Scanner sc = new Scanner(System.in);
+
         try {
-            return sc.nextInt();
+            String str = sc.nextLine();
+            System.out.println("string = " + str);
+            return str;
+        } catch (Exception e) {
         }
-        catch (Exception e) {
-        }
-        return 0;
+        return "";
     }
 
 }

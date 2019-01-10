@@ -45,18 +45,6 @@ public class Menu {
         return 0;
     }
 
-    private char scanChar() {
-        Scanner sc = new Scanner(System.in);
-
-        try {
-            String str = sc.nextLine();
-            return str.charAt(0);
-        } catch (Exception e) {
-        }
-        return '0';
-    }
-
-
     private void displayModeChoice() {
         StringBuilder msgChoice = new StringBuilder("Please enter number :" );
         for (GameMode mode : GameMode.values()) {
