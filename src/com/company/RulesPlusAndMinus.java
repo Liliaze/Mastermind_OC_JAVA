@@ -19,12 +19,12 @@ public class RulesPlusAndMinus extends Rules {
 
         for (int i = 0 ; i < player.propositionArray.length ; i++) {
             if (player.propositionArray[i] < GameState.secretCodeArray[i]) {
-                PINK.print(player.propositionArray[i] + "+", false);
+                PINK.print("+", false);
             } else if (player.propositionArray[i] == GameState.secretCodeArray[i]) {
-                GREEN.print(player.propositionArray[i] + "=", false);
+                GREEN.print("=", false);
                 nbEqualityFinded += 1;
             } else
-                PINK.print(player.propositionArray[i] + "-", false);
+                PINK.print("-", false);
         }
         System.out.print("\n");
         if (nbEqualityFinded == GameState.nbEltInSecretCode)
