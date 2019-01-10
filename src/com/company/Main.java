@@ -3,13 +3,12 @@ package com.company;
 public class Main {
 
     private static void launchARoundGame(Menu menu) {
+        Rules rules = null;
         switch (GameState.gameChoosed) {
             case PLUS_AND_MINUS:
-                System.out.println("TO DO : implement Plus and Minus Rules");
-                Rules rules = new RulesPlusAndMinus();
+                rules = new RulesPlusAndMinus();
                 switch (GameState.modeChoosed) {
                     case CHALLENGER:
-                        System.out.println("TO DO : implement challenger");
                         RoundGame newRound = new RoundGame(new PlayerHuman(rules, "JEAN"), null, new PlayerIA(rules, "MAITRE"), rules);
                         newRound.startRound();
                         break;
@@ -28,10 +27,11 @@ public class Main {
                 }
                 break;
             case MASTERMIND:
-                System.out.println("TO DO : implement Mastermind Rules");
+                rules = new RulesMastermind();
                 switch (GameState.modeChoosed) {
                     case CHALLENGER:
-                        System.out.println("TO DO : implement challenger");
+                        RoundGame newRound = new RoundGame(new PlayerHuman(rules, "JEAN"), null, new PlayerIA(rules, "MAITRE"), rules);
+                        newRound.startRound();
                         break;
                     case DEFENDER:
                         System.out.println("TO DO : implement defender");
