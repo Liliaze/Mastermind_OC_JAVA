@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.gameConstante.GameType;
+import static com.company.gameConstante.GameColor.*;
 
 public class RoundGame {
 
@@ -21,16 +22,11 @@ public class RoundGame {
         System.out.println("A new game Start :" + GameState.gameChoosed + " in mode " + GameState.modeChoosed + " , ENJOY !");
     }
 
-    public void test() {
-        System.out.println("test");
-    }
 
     public void startRound() {
         do {
             System.out.println("tour = " + nbTrying);
-            if (nbTrying == 5) {
-                secretAgent1.setProposition(GameState.secretCodeInt);
-            }
+            secretAgent1.play();
             nbTrying += 1;
         } while (!rules.checkEnd(nbTrying, secretAgent1, secretAgent2, masterGame));
     }

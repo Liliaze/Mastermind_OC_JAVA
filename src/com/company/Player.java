@@ -1,5 +1,8 @@
 package com.company;
 
+import static com.company.gameConstante.GameColor.*;
+
+
 abstract class Player {
 
     public int[] propositionArray = new int[GameState.nbEltInSecretCode];
@@ -17,12 +20,14 @@ abstract class Player {
 
     public abstract int[] generateSecretCode();
     public abstract boolean win();
+
     public void setProposition(int nb) {
         this.proposition = nb;
         for (int i = propositionArray.length - 1; i >= 0 ; i--) {
             propositionArray[i] = nb % 10;
             nb = nb /10;
         }
-        System.out.println("proposition = " + proposition);
+        System.out.println("set proposition is in int = " + proposition + " et array = " + propositionArray.toString());
     }
+    public abstract void play();
 }

@@ -5,7 +5,6 @@ import java.util.Scanner;
 import com.company.gameConstante.GameMode;
 import com.company.gameConstante.GameType;
 
-import static com.company.gameConstante.GameType.*;
 
 
 public class Menu {

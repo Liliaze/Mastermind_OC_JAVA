@@ -1,4 +1,5 @@
 package com.company;
+import static com.company.gameConstante.GameColor.*;
 
 public class RulesMastermind extends Rules {
 

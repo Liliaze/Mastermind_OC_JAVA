@@ -24,7 +24,12 @@ public class PlayerIA extends Player {
     @Override
     public boolean win() {
         iWin = true;
-        System.out.println("IA WIN !!!!!");
+        System.out.println("IA called " + this.name + " WIN !!!!!");
         return iWin;
+    }
+
+    @Override
+    public void play() {
+        System.out.println("TO DO : implement IA play turn");
     }
 }
