@@ -1,7 +1,9 @@
-package com.company;
-import static com.company.gameConstante.GameColor.*;
+package main.Rules;
+import main.GameState;
+import main.gameConstante.GameColor;
+import main.player.Player;
 
-abstract class Rules {
+public abstract class Rules {
 
     Rules() {
         System.out.println("new Rules is create");
@@ -15,7 +17,7 @@ abstract class Rules {
         if (checkVictory(secretAgent2))
         {
             if (playerVictory)
-                GREEN.print("BOTH PLAYER WINS : " + secretAgent1.name + " and " + secretAgent2.name + " ==> 'EQUALITY', CONGRATULATION ! ! !");
+                GameColor.GREEN.print("BOTH PLAYER WINS : " + secretAgent1.name + " and " + secretAgent2.name + " ==> 'EQUALITY', CONGRATULATION ! ! !");
             playerVictory = true;
         }
         else if (nbTurn >= GameState.nbTryMax) {

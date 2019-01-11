@@ -1,9 +1,12 @@
-package com.company;
-import static com.company.gameConstante.GameColor.*;
+package main.Rules;
+import main.GameState;
+import main.Rules.Rules;
+import main.gameConstante.GameColor;
+import main.player.Player;
 
 public class RulesPlusAndMinus extends Rules {
 
-    RulesPlusAndMinus() {
+    public RulesPlusAndMinus() {
         System.out.println("This game is under Plus and Minus Rules");
     }
 
@@ -14,7 +17,7 @@ public class RulesPlusAndMinus extends Rules {
         player.previousReponse = "";
 
         if ( GameState.nbEltInSecretCode != player.propositionArray.length)
-            RED.print("WARNING !!!! bug dans le nombre d'élément, fix this bug", true);
+            GameColor.RED.print("WARNING !!!! bug dans le nombre d'élément, fix this bug", true);
 
         System.out.print("Proposition : " + player.proposition + " -> Réponse : ");
 
@@ -28,7 +31,7 @@ public class RulesPlusAndMinus extends Rules {
                 player.previousReponse += "-";
             }
         }
-        PINK.print(player.previousReponse, true);
+        GameColor.PINK.print(player.previousReponse, true);
         if (nbEqualityFinded == GameState.nbEltInSecretCode)
             return player.win();
         return false;

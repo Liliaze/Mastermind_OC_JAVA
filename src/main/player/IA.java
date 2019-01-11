@@ -1,16 +1,17 @@
-package com.company;
+package main.player;
 
-import com.company.gameConstante.GameType;
-
-import static com.company.gameConstante.GameColor.*;
+import main.GameState;
+import main.Rules.Rules;
+import main.gameConstante.GameType;
+import main.gameConstante.GameColor;
 
 import java.util.Random;
 
-public class PlayerIA extends Player {
+public class IA extends Player {
     private boolean firstTry = true;
     private boolean secondTry = true;
 
-    PlayerIA(Rules r, String nameTmp) {
+    public IA(Rules r, String nameTmp) {
         super(r, nameTmp);
         System.out.println("a new IA is coming, his name is : " + name);
     }
@@ -30,7 +31,7 @@ public class PlayerIA extends Player {
     @Override
     public boolean win() {
         iWin = true;
-        BLUE.print("IA called " + this.name + " WIN !!!!!");
+        GameColor.BLUE.print("IA called " + this.name + " WIN !!!!!");
         return iWin;
     }
 

@@ -1,4 +1,10 @@
-package com.company;
+package main;
+
+import main.Rules.Rules;
+import main.Rules.RulesMastermind;
+import main.Rules.RulesPlusAndMinus;
+import main.player.Human;
+import main.player.IA;
 
 public class Main {
 
@@ -18,16 +24,17 @@ public class Main {
                 menu.displayGoodBye();
                 break;
         }
+
         RoundGame newRound = null;
         switch (GameState.modeChoosed) {
             case CHALLENGER:
-                newRound = new RoundGame(new PlayerHuman(rules, "JEAN"), null, new PlayerIA(rules, "MAITRE"), rules);
+                newRound = new RoundGame(new Human(rules, "JEAN"), null, new IA(rules, "MAITRE"), rules);
                 break;
             case DEFENDER:
-                newRound = new RoundGame(new PlayerIA(rules, "JEANNETTE"), null, new PlayerHuman(rules, "ALTHEA"), rules);
+                newRound = new RoundGame(new IA(rules, "JEANNETTE"), null, new Human(rules, "ALTHEA"), rules);
                 break;
             case DUAL:
-                newRound = new RoundGame(new PlayerHuman(rules, "ALTHEA"), new PlayerIA(rules, "JEANNETTE"), new PlayerIA(rules, "GAMEMASTER"), rules);
+                newRound = new RoundGame(new Human(rules, "ALTHEA"), new IA(rules, "JEANNETTE"), new IA(rules, "GAMEMASTER"), rules);
                 break;
             case EXIT:
                 menu.displayGoodBye();

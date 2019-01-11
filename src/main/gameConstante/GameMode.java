@@ -1,4 +1,4 @@
-package com.company.gameConstante;
+package main.gameConstante;
 
 public enum GameMode {
 

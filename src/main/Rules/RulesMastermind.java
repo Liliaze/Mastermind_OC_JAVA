@@ -1,10 +1,13 @@
-package com.company;
+package main.Rules;
 
-import static com.company.gameConstante.GameColor.*;
+import main.GameState;
+import main.Rules.Rules;
+import main.gameConstante.GameColor;
+import main.player.Player;
 
 public class RulesMastermind extends Rules {
 
-    RulesMastermind() {
+    public RulesMastermind() {
         System.out.println("This game is under Mastermind Rules");
     }
 /*
@@ -37,7 +40,7 @@ public class RulesMastermind extends Rules {
         int present = 0;
 
         if (GameState.nbEltInSecretCode != player.propositionArray.length)
-            RED.print("WARNING !!!! bug dans le nombre d'élément, fix this bug", true);
+            GameColor.RED.print("WARNING !!!! bug dans le nombre d'élément, fix this bug", true);
 
         System.out.print("Proposition : " + player.proposition + " -> Réponse : ");
 
@@ -54,18 +57,18 @@ public class RulesMastermind extends Rules {
             }
         }
         if (goodPlace == GameState.nbEltInSecretCode) {
-            GREEN.print(goodPlace + " présents", true);
+            GameColor.GREEN.print(goodPlace + " présents", true);
         return player.win();
         }
         if (goodPlace == 0 && present == 0)
-            PINK.print("Vous êtes à côté de la plaque", false);
+            GameColor.PINK.print("Vous êtes à côté de la plaque", false);
         else if (present > 0) {
-            YELLOW.print(present > 1 ? present + " présents" : present + " présent", false);
+            GameColor.YELLOW.print(present > 1 ? present + " présents" : present + " présent", false);
             if (goodPlace > 0)
-                DEFAULT.print(", ", false);
+                GameColor.DEFAULT.print(", ", false);
         }
         if (goodPlace > 0)
-            GREEN.print(goodPlace > 1 ? goodPlace + " bien placés" : goodPlace + " bien placé", false);
+            GameColor.GREEN.print(goodPlace > 1 ? goodPlace + " bien placés" : goodPlace + " bien placé", false);
         System.out.print("\n");
         return false;
     }

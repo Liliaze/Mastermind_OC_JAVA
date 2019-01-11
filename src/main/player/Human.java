@@ -1,12 +1,14 @@
-package com.company;
+package main.player;
+
+import main.GameState;
+import main.Rules.Rules;
+import main.gameConstante.GameColor;
 
 import java.util.Scanner;
 
-import static com.company.gameConstante.GameColor.*;
+public class Human extends Player {
 
-public class PlayerHuman extends Player {
-
-    PlayerHuman(Rules r, String nameTmp) {
+    public Human(Rules r, String nameTmp) {
         super(r, nameTmp);
         //add ask Name.
         System.out.println("a new Human is coming, his name is : " + name);
@@ -32,7 +34,7 @@ public class PlayerHuman extends Player {
     @Override
     public boolean win() {
         iWin = true;
-        GREEN.print(this.name + " type HUMAN WIN !!!!!", true);
+        GameColor.GREEN.print(this.name + " type HUMAN WIN !!!!!", true);
         return iWin;
     }
 

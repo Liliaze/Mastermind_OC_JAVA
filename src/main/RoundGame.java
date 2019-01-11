@@ -1,7 +1,7 @@
-package com.company;
+package main;
 
-import com.company.gameConstante.GameType;
-import static com.company.gameConstante.GameColor.*;
+import main.Rules.Rules;
+import main.player.Player;
 
 public class RoundGame {
 

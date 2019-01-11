@@ -1,16 +1,18 @@
-package com.company;
+package main.player;
 
-import static com.company.gameConstante.GameColor.*;
+import main.GameState;
+import main.Rules.Rules;
+import main.gameConstante.GameColor;
 
 
-abstract class Player {
+public abstract class Player {
 
     public int[] propositionArray = new int[GameState.nbEltInSecretCode];
     public String proposition= "";
     boolean iWin;
     protected Rules rules;
-    String name;
-    String previousReponse = "";
+    public String name;
+    public String previousReponse = "";
 
     Player(Rules r, String nameTmp) {
         rules = r;
@@ -37,7 +39,7 @@ abstract class Player {
 
     protected boolean checkSecretCodeFormatFromString(String str) {
         if (str.length() != GameState.nbEltInSecretCode) {
-            RED.print("wrong format, please enter exactly" + GameState.nbEltInSecretCode + " nombre");
+            GameColor.RED.print("wrong format, please enter exactly" + GameState.nbEltInSecretCode + " nombre");
             return false;
         }
 
@@ -45,7 +47,7 @@ abstract class Player {
             int value = Character.getNumericValue(str.charAt(i));
             System.out.println("value = " + value);
             if (value > 9 || value < 0) {
-                RED.print("wrong format, not a number");
+                GameColor.RED.print("wrong format, not a number");
                 return false;
             }
         }

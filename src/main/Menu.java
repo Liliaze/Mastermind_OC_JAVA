@@ -1,10 +1,9 @@
-package com.company;
+package main;
 
 import java.util.Scanner;
 
-import com.company.gameConstante.GameMode;
-import com.company.gameConstante.GameType;
-
+import main.gameConstante.GameMode;
+import main.gameConstante.GameType;
 
 
 public class Menu {
