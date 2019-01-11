@@ -10,6 +10,7 @@ abstract class Player {
     boolean iWin;
     protected Rules rules;
     String name;
+    String previousReponse = "";
 
     Player(Rules r, String nameTmp) {
         rules = r;

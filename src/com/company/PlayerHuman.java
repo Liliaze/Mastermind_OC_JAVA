@@ -16,8 +16,17 @@ public class PlayerHuman extends Player {
 
     @Override
     public int[] generateSecretCode() {
-        System.out.println("my code is 1248");
-        return new int[]{1, 2, 4, 8};
+        System.out.println(name + " is the defender, please choose the secret code. ");
+        String str;
+        do {
+            System.out.println("(Secret code must be contains " + GameState.nbEltInSecretCode + " nombre)");
+            str = scanString();
+        } while (!checkSecretCodeFormatFromString(str));
+        int[] tmpSecretCode = new int[GameState.nbEltInSecretCode];
+        for (int i = 0; i < GameState.nbEltInSecretCode; i++) {
+            tmpSecretCode[i] = Character.getNumericValue(str.charAt(i));
+        }
+        return tmpSecretCode;
     }
 
     @Override

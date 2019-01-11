@@ -53,8 +53,10 @@ public class RulesMastermind extends Rules {
                 }
             }
         }
-        if (goodPlace == GameState.nbEltInSecretCode)
-            return player.win();
+        if (goodPlace == GameState.nbEltInSecretCode) {
+            GREEN.print(goodPlace + " présents", true);
+        return player.win();
+        }
         if (goodPlace == 0 && present == 0)
             PINK.print("Vous êtes à côté de la plaque", false);
         else if (present > 0) {

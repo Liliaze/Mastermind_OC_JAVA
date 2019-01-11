@@ -26,7 +26,10 @@ public class RoundGame {
     public void startRound() {
         do {
             System.out.println("tour = " + nbTrying);
-            secretAgent1.play();
+            if (secretAgent1 != null)
+                secretAgent1.play();
+            if (secretAgent2 != null)
+                secretAgent2.play();
             nbTrying += 1;
         } while (!rules.checkEnd(nbTrying, secretAgent1, secretAgent2, masterGame));
     }

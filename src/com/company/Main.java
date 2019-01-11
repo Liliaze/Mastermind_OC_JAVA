@@ -18,16 +18,16 @@ public class Main {
                 menu.displayGoodBye();
                 break;
         }
+        RoundGame newRound = null;
         switch (GameState.modeChoosed) {
             case CHALLENGER:
-                RoundGame newRound = new RoundGame(new PlayerHuman(rules, "JEAN"), null, new PlayerIA(rules, "MAITRE"), rules);
-                newRound.startRound();
+                newRound = new RoundGame(new PlayerHuman(rules, "JEAN"), null, new PlayerIA(rules, "MAITRE"), rules);
                 break;
             case DEFENDER:
-                System.out.println("TO DO : implement defender");
+                newRound = new RoundGame(new PlayerIA(rules, "JEANNETTE"), null, new PlayerHuman(rules, "ALTHEA"), rules);
                 break;
             case DUAL:
-                System.out.println("TO DO : implement DUAL");
+                newRound = new RoundGame(new PlayerHuman(rules, "ALTHEA"), new PlayerIA(rules, "JEANNETTE"), new PlayerIA(rules, "GAMEMASTER"), rules);
                 break;
             case EXIT:
                 menu.displayGoodBye();
@@ -36,6 +36,7 @@ public class Main {
                 menu.displayGoodBye();
                 break;
         }
+        newRound.startRound();
     }
 
     public static void main(String[] args) {
