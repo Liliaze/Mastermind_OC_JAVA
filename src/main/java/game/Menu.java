@@ -1,9 +1,9 @@
-package main;
+package game;
 
 import java.util.Scanner;
 
-import main.gameConstante.GameMode;
-import main.gameConstante.GameType;
+import game.constante.GameMode;
+import game.constante.GameType;
 
 
 public class Menu {
@@ -68,11 +68,11 @@ public class Menu {
 
 /*
     private void displayMastermindRules() {
-        System.out.println("YOU ARE IN MASTERMIND GAME - This is Rules");
+        System.out.println("YOU ARE IN MASTERMIND GAME - This is game.rules");
     }
 
     private void displayPlusAndMinusRules() {
-        System.out.println("YOU ARE IN PLUS AND MINUS GAME - This is Rules");
+        System.out.println("YOU ARE IN PLUS AND MINUS GAME - This is game.rules");
     }
 */
 

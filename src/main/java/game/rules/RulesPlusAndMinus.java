@@ -1,13 +1,12 @@
-package main.Rules;
-import main.GameState;
-import main.Rules.Rules;
-import main.gameConstante.GameColor;
-import main.player.Player;
+package game.rules;
+import game.GameState;
+import game.constante.GameColor;
+import game.player.Player;
 
 public class RulesPlusAndMinus extends Rules {
 
     public RulesPlusAndMinus() {
-        System.out.println("This game is under Plus and Minus Rules");
+        System.out.println("This game is under Plus and Minus game.rules");
     }
 
     public boolean checkVictory(Player player) {

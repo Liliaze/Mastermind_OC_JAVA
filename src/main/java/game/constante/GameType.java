@@ -1,4 +1,4 @@
-package main.gameConstante;
+package game.constante;
 
 public enum GameType {
 

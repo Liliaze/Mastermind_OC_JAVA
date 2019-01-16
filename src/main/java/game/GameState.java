@@ -1,7 +1,7 @@
-package main;
+package game;
 
-import main.gameConstante.GameType;
-import main.gameConstante.GameMode;
+import game.constante.GameType;
+import game.constante.GameMode;
 
 public class GameState {
     private static GameState ourInstance = new GameState();

@@ -1,26 +1,25 @@
-package main.Rules;
+package game.rules;
 
-import main.GameState;
-import main.Rules.Rules;
-import main.gameConstante.GameColor;
-import main.player.Player;
+import game.GameState;
+import game.constante.GameColor;
+import game.player.Player;
 
 public class RulesMastermind extends Rules {
 
     public RulesMastermind() {
-        System.out.println("This game is under Mastermind Rules");
+        System.out.println("This game is under Mastermind game.rules");
     }
 /*
-    public boolean checkVictory(Player player) {
-        if (player == null)
+    public boolean checkVictory(Player game.player) {
+        if (game.player == null)
             return false;
         System.out.println("!!!!!!! TEST TMP A REVOIR CPMLTMT !!!!! ");
         int nbGood = 0;
         int nbBadPlace = 0;
-        for (int i = 0; i < GameState.nbEltInSecretCode; i++) {
-            if (player.propositionArray[i] < GameState.secretCodeArray[i]) {
+        for (int i = 0; i < game.GameState.nbEltInSecretCode; i++) {
+            if (game.player.propositionArray[i] < game.GameState.secretCodeArray[i]) {
                 System.out.println("c'est moins");
-            } else if (player.propositionArray[i] == GameState.secretCodeArray[i]) {
+            } else if (game.player.propositionArray[i] == game.GameState.secretCodeArray[i]) {
                 System.out.println("c'est bon");
                 nbGood += 1;
             } else {
@@ -28,8 +27,8 @@ public class RulesMastermind extends Rules {
                 System.out.println("c'est sup");
             }
         }
-        if (nbGood == GameState.nbEltInSecretCode)
-            return player.win();
+        if (nbGood == game.GameState.nbEltInSecretCode)
+            return game.player.win();
         return false;
     }
 */

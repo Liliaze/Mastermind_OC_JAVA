@@ -1,7 +1,7 @@
-package main;
+package game;
 
-import main.Rules.Rules;
-import main.player.Player;
+import game.rules.Rules;
+import game.player.Player;
 
 public class RoundGame {
 
@@ -11,11 +11,11 @@ public class RoundGame {
     Rules rules;
     int nbTrying;
 
-    RoundGame(Player one, Player two, Player defender, Rules rls) {
+    public RoundGame(Player one, Player two, Player defender, Rules rls) {
         this.secretAgent1 = one;
         this.secretAgent2 = two;
         this.masterGame = defender;
-        //GameState.setSecretCodeArray(this.secretAgent1.generateSecretCode()); // tmp test human
+        //game.GameState.setSecretCodeArray(this.secretAgent1.generateSecretCode()); // tmp test human
         GameState.setSecretCodeArray(this.masterGame.generateSecretCode());
         this.rules = rls;
         this.nbTrying = 0;

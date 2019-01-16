@@ -1,8 +1,8 @@
-package main.player;
+package game.player;
 
-import main.GameState;
-import main.Rules.Rules;
-import main.gameConstante.GameColor;
+import game.GameState;
+import game.rules.Rules;
+import game.constante.GameColor;
 
 import java.util.Scanner;
 

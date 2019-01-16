@@ -1,8 +1,8 @@
-package main.player;
+package game.player;
 
-import main.GameState;
-import main.Rules.Rules;
-import main.gameConstante.GameColor;
+import game.GameState;
+import game.rules.Rules;
+import game.constante.GameColor;
 
 
 public abstract class Player {
@@ -18,7 +18,7 @@ public abstract class Player {
         rules = r;
         iWin = false;
         this.name = nameTmp;
-        System.out.println("new player is create");
+        System.out.println("new game.player is create");
     }
 
     public abstract int[] generateSecretCode();
@@ -27,7 +27,7 @@ public abstract class Player {
     public void setProposition(String str) {
         this.proposition = str;
         /*
-        for (int i = GameState.nbEltInSecretCode - 1; i >= 0 ; i--) {
+        for (int i = game.GameState.nbEltInSecretCode - 1; i >= 0 ; i--) {
             propositionArray[i] = nb % 10;
             nb = nb /10;
         }

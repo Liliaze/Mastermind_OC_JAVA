@@ -1,10 +1,11 @@
-package main;
-
-import main.Rules.Rules;
-import main.Rules.RulesMastermind;
-import main.Rules.RulesPlusAndMinus;
-import main.player.Human;
-import main.player.IA;
+import game.GameState;
+import game.Menu;
+import game.RoundGame;
+import game.rules.Rules;
+import game.rules.RulesMastermind;
+import game.rules.RulesPlusAndMinus;
+import game.player.Human;
+import game.player.IA;
 
 public class Main {
 

@@ -1,12 +1,12 @@
-package main.Rules;
-import main.GameState;
-import main.gameConstante.GameColor;
-import main.player.Player;
+package game.rules;
+import game.GameState;
+import game.constante.GameColor;
+import game.player.Player;
 
 public abstract class Rules {
 
     Rules() {
-        System.out.println("new Rules is create");
+        System.out.println("new game.rules is create");
     }
 
 

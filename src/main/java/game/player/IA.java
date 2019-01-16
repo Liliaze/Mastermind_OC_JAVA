@@ -1,9 +1,9 @@
-package main.player;
+package game.player;
 
-import main.GameState;
-import main.Rules.Rules;
-import main.gameConstante.GameType;
-import main.gameConstante.GameColor;
+import game.GameState;
+import game.rules.Rules;
+import game.constante.GameType;
+import game.constante.GameColor;
 
 import java.util.Random;
 
@@ -78,7 +78,7 @@ public class IA extends Player {
         }
         setProposition(iaProposition);
         // test to good solution immediate :
-        // setProposition(Integer.toString(GameState.secretCodeInt));
+        // setProposition(Integer.toString(game.GameState.secretCodeInt));
     }
 
     private void playMastermind() {
