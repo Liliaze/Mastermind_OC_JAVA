@@ -14,18 +14,18 @@ public class Human extends Player {
         System.out.println("a new Human is coming, his name is : " + name);
     }
 
-    int[] propositionCode = new int[GameState.nbEltInSecretCode];
+    int[] propositionCode = new int[rules.nbEltInCode];
 
     @Override
     public int[] generateSecretCode() {
         System.out.println(name + " is the defender, please choose the secret code. ");
         String str;
         do {
-            System.out.println("(Secret code must be contains " + GameState.nbEltInSecretCode + " nombre)");
+            System.out.println("(Secret code must be contains " + rules.nbEltInCode + " nombre)");
             str = scanString();
         } while (!checkSecretCodeFormatFromString(str));
-        int[] tmpSecretCode = new int[GameState.nbEltInSecretCode];
-        for (int i = 0; i < GameState.nbEltInSecretCode; i++) {
+        int[] tmpSecretCode = new int[rules.nbEltInCode];
+        for (int i = 0; i < rules.nbEltInCode; i++) {
             tmpSecretCode[i] = Character.getNumericValue(str.charAt(i));
         }
         return tmpSecretCode;
@@ -34,14 +34,13 @@ public class Human extends Player {
     @Override
     public boolean win() {
         iWin = true;
-        GameColor.GREEN.print(this.name + " type HUMAN WIN !!!!!", true);
+        GameColor.GREEN.print(this.name + " type HUMAN WIN !!!!", true);
         return iWin;
     }
 
     @Override
     public void play() {
-        System.out.println("secret code i search is : " + GameState.secretCodeInt);
-        System.out.println("So, i'm propose :");
+        System.out.println("secret code i search is : " + GameState.arrayToInt(GameState.secretCodeArray));
         String str;
         do {
             str = scanString();

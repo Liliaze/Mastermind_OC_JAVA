@@ -2,12 +2,15 @@ package game.rules;
 
 import game.GameState;
 import game.constante.GameColor;
+import game.constante.GameType;
 import game.player.Player;
 
 public class RulesMastermind extends Rules {
 
-    public RulesMastermind() {
-        System.out.println("This game is under Mastermind game.rules");
+    public RulesMastermind(GameType g) {
+        super(g);
+        nbEltInCode = GameState.nbEltInSecretCodeMastermind;
+        nbColorInCode = GameState.nbColorInSecretCodeMastermind;
     }
 /*
     public boolean checkVictory(Player game.player) {
@@ -38,7 +41,7 @@ public class RulesMastermind extends Rules {
         int goodPlace = 0;
         int present = 0;
 
-        if (GameState.nbEltInSecretCode != player.propositionArray.length)
+        if (nbEltInCode != player.propositionArray.length)
             GameColor.RED.print("WARNING !!!! bug dans le nombre d'élément, fix this bug", true);
 
         System.out.print("Proposition : " + player.proposition + " -> Réponse : ");
@@ -55,7 +58,7 @@ public class RulesMastermind extends Rules {
                 }
             }
         }
-        if (goodPlace == GameState.nbEltInSecretCode) {
+        if (goodPlace == nbEltInCode) {
             GameColor.GREEN.print(goodPlace + " présents", true);
         return player.win();
         }

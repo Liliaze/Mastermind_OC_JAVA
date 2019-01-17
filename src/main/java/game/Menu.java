@@ -99,7 +99,7 @@ public class Menu {
         return (answerChar == 'Y' || answerChar == 'y');
     }
 */
-    public void displayGoodBye() {
+    public static void displayGoodBye() {
         System.out.println("GOOD_BYE");
         System.exit(0);
     }

@@ -1,5 +1,6 @@
 package game;
 
+import game.constante.GameColor;
 import game.rules.Rules;
 import game.player.Player;
 
@@ -19,13 +20,15 @@ public class RoundGame {
         GameState.setSecretCodeArray(this.masterGame.generateSecretCode());
         this.rules = rls;
         this.nbTrying = 0;
-        System.out.println("A new game Start :" + GameState.gameChoosed + " in mode " + GameState.modeChoosed + " , ENJOY !");
+        GameColor.BLUE.print("WELCOME IN : " + rls.gameType);
+        GameColor.CYAN.print(rls.gameType.getRulesDsc());
+        GameColor.CYAN.print("The secretCode is constituted of " + rls.nbEltInCode + " number/color. Good luck !");
     }
 
 
     public void startRound() {
         do {
-            System.out.println("tour = " + nbTrying);
+            GameColor.PINK.print("tour = " + nbTrying);
             if (secretAgent1 != null)
                 secretAgent1.play();
             if (secretAgent2 != null)

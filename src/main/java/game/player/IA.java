@@ -19,10 +19,10 @@ public class IA extends Player {
     @Override
     public int[] generateSecretCode() {
         Random rand = new Random();
-        int tmpSecretCode[] = new int[GameState.nbEltInSecretCode];
+        int tmpSecretCode[] = new int[rules.nbEltInCode];
         System.out.println("IA : mon code secret est :");
-        for (int i = 0; i < GameState.nbEltInSecretCode; i++) {
-            tmpSecretCode[i] = rand.nextInt(10);
+        for (int i = 0; i < rules.nbEltInCode; i++) {
+            tmpSecretCode[i] = rand.nextInt(rules.nbColorInCode);
             System.out.println(tmpSecretCode[i]);
         }
         return tmpSecretCode;
@@ -49,7 +49,7 @@ public class IA extends Player {
         String iaProposition = "";
         if (firstTry) {
             firstTry = false;
-            for (int i = 0; i < GameState.nbEltInSecretCode; i++) {
+            for (int i = 0; i < rules.nbEltInCode; i++) {
                 iaProposition += "5";
             }
             setProposition(iaProposition);
@@ -57,7 +57,7 @@ public class IA extends Player {
         }
         if (secondTry) {
             secondTry = false;
-        for (int i = 0; i < GameState.nbEltInSecretCode; i++) {
+        for (int i = 0; i < rules.nbEltInCode; i++) {
             if (previousReponse.charAt(i) == '+') {
                 iaProposition += "7"; //Integer.toString(propositionArray[i] + ((10 - propositionArray[i]) / 2));
             } else if (previousReponse.charAt(i) == '-') {
@@ -68,7 +68,7 @@ public class IA extends Player {
         setProposition(iaProposition);
            return;
     }
-        for (int i = 0; i < GameState.nbEltInSecretCode; i++) {
+        for (int i = 0; i < rules.nbEltInCode; i++) {
             if (previousReponse.charAt(i) == '+') {
                 iaProposition += Integer.toString(propositionArray[i] + 1);
             } else if (previousReponse.charAt(i) == '-') {
@@ -77,12 +77,10 @@ public class IA extends Player {
                 iaProposition += Integer.toString(propositionArray[i]);
         }
         setProposition(iaProposition);
-        // test to good solution immediate :
-        // setProposition(Integer.toString(game.GameState.secretCodeInt));
     }
 
     private void playMastermind() {
         System.out.println("TO DO : play for Mastermind");
-        setProposition(Integer.toString(GameState.secretCodeInt));
+        setProposition(Integer.toString(GameState.arrayToInt(GameState.secretCodeArray)));
     }
 }

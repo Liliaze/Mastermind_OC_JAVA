@@ -1,6 +1,7 @@
 import game.GameState;
 import game.Menu;
 import game.RoundGame;
+import game.constante.GameColor;
 import game.rules.Rules;
 import game.rules.RulesMastermind;
 import game.rules.RulesPlusAndMinus;
@@ -20,10 +21,10 @@ public class Main {
         Rules rules = null;
         switch (GameState.gameChoosed) {
             case PLUS_AND_MINUS:
-                rules = new RulesPlusAndMinus();
+                rules = new RulesPlusAndMinus(GameState.gameChoosed);
                 break;
             case MASTERMIND:
-                rules = new RulesMastermind();
+                rules = new RulesMastermind(GameState.gameChoosed);
                 break;
             case EXIT:
                 menu.displayGoodBye();
@@ -65,7 +66,18 @@ public class Main {
         myFirstLogger.info("just an info");
 
         for (int i = 0; i < 50; ++i) System.out.println();
-        System.out.println(""+
+        GameColor.CYAN.print(
+                "_  _ ____ ____ ___ ____ ____     ____ ____ ____ ____ ____ _  _  \n" +
+                "|\\/| |__| [__   |  |___ |__/     [__  |___ |__| |__/ |    |__|  \n" +
+                "|  | |  | ___]  |  |___ |  \\ ___ ___] |___ |  | |  \\ |___ |  |  \n" +
+                "                                                                \n" +
+                "____    ___  ____ _  _ ___  _   _ . ____    ____ ____ _  _ ____ \n" +
+                "|__|    |__] |  | |  | |  \\  \\_/  ' [__     | __ |__| |\\/| |___ \n" +
+                "|  |    |__] |__| |__| |__/   |     ___]    |__] |  | |  | |___ \n");
+        /*
+
+
+                ""+
                 ",---.    ,---.   ____       .-'''-. ,---------.    .-''-.  .-------.                       .-'''-.     .-''-.     ____    .-------.        _______   .---.  .---.  \n"+
                 "|    \\  /    | .'  __ `.   / _     \\\\          \\ .'_ _   \\ |  _ _   \\                     / _     \\  .'_ _   \\  .'  __ `. |  _ _   \\      /   __  \\  |   |  |_ _|  \n"+
                 "|  ,  \\/  ,  |/   '  \\  \\ (`' )/`--' `--.  ,---'/ ( ` )   '| ( ' )  |                    (`' )/`--' / ( ` )   '/   '  \\  \\| ( ' )  |     | ,_/  \\__) |   |  ( ' )  \n"+
@@ -82,10 +94,10 @@ public class Main {
                 "   _.-`   |        |   _ _ '. |  _`,/ \\ _/  |'   ( \\.-.|| . (_) `. | ___(_ o _)'         (_,_). '.         |  |  .-----.   _.-`   ||  _( )_/ |  ||  (_,_)___|      \n"+
                 ".'   _    |        |  ( ' )  \\: (  '\\_/ \\   ;' (`. _` /||(_    ._) '|   |(_,_)'         .---.  \\  :        '  \\  '-   .'.'   _    || (_ o _) |  |'  \\   .---.      \n"+
                 "|  _( )_  |        | (_{;}_) | \\ `\"/  \\  ) / | (_ (_) _)|  (_.\\.' / |   `-'  /          \\    `-'  |         \\  `-'`   | |  _( )_  ||  (_,_)  |  | \\  `-'    /      \n"+
-        "\\ (_ o _) /        |  (_,_)  /  '. \\_/``\".'   \\ /  . \\ /|       .'   \\      /            \\       /           \\        / \\ (_ o _) /|  |      |  |  \\       /       \n"+
-        " '.(_,_).'         /_______.'     '-----'      ``-'`-'' '-----'`      `-..-'              `-...-'             `'-...-'   '.(_,_).' '--'      '--'   `'-..-'        \n"
+                "\\ (_ o _) /        |  (_,_)  /  '. \\_/``\".'   \\ /  . \\ /|       .'   \\      /            \\       /           \\        / \\ (_ o _) /|  |      |  |  \\       /       \n"+
+                " '.(_,_).'         /_______.'     '-----'      ``-'`-'' '-----'`      `-..-'              `-...-'             `'-...-'   '.(_,_).' '--'      '--'   `'-..-'        \n"
                                                                                                                                                                    );
-
+*/
         do {
             menuGame.displayWelcomeMenu();
             do {

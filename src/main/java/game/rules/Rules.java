@@ -1,12 +1,17 @@
 package game.rules;
 import game.GameState;
 import game.constante.GameColor;
+import game.constante.GameType;
 import game.player.Player;
 
 public abstract class Rules {
 
-    Rules() {
-        System.out.println("new game.rules is create");
+    public int nbEltInCode = 0;
+    public int nbColorInCode = 0;
+    public GameType gameType;
+
+    Rules(GameType g) {
+        gameType = g;
     }
 
 
