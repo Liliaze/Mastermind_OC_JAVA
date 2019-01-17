@@ -21,10 +21,10 @@ public class Main {
         Rules rules = null;
         switch (GameState.gameChoosed) {
             case PLUS_AND_MINUS:
-                rules = new RulesPlusAndMinus(GameState.gameChoosed);
+                rules = new RulesPlusAndMinus(GameState.gameChoosed, GameState.modeChoosed);
                 break;
             case MASTERMIND:
-                rules = new RulesMastermind(GameState.gameChoosed);
+                rules = new RulesMastermind(GameState.gameChoosed, GameState.modeChoosed);
                 break;
             case EXIT:
                 menu.displayGoodBye();
@@ -34,6 +34,9 @@ public class Main {
                 break;
         }
 
+        RoundGame newRound = null;
+        newRound = new RoundGame(new Human(rules, "ALTHEA", null), new IA(rules, "JEANNETTE", null), rules);
+        /*
         RoundGame newRound = null;
         switch (GameState.modeChoosed) {
             case CHALLENGER:
@@ -51,7 +54,7 @@ public class Main {
             default:
                 menu.displayGoodBye();
                 break;
-        }
+        }*/
         newRound.startRound();
     }
 
@@ -60,10 +63,6 @@ public class Main {
         int again;
 
         DOMConfigurator.configure("src/main/resources/log4j.xml");
-
-        myFirstLogger.debug("i am debug message");
-        myFirstLogger.error("i am error message");
-        myFirstLogger.info("just an info");
 
         for (int i = 0; i < 50; ++i) System.out.println();
         GameColor.CYAN.print(
@@ -74,36 +73,12 @@ public class Main {
                 "____    ___  ____ _  _ ___  _   _ . ____    ____ ____ _  _ ____ \n" +
                 "|__|    |__] |  | |  | |  \\  \\_/  ' [__     | __ |__| |\\/| |___ \n" +
                 "|  |    |__] |__| |__| |__/   |     ___]    |__] |  | |  | |___ \n");
-        /*
 
-
-                ""+
-                ",---.    ,---.   ____       .-'''-. ,---------.    .-''-.  .-------.                       .-'''-.     .-''-.     ____    .-------.        _______   .---.  .---.  \n"+
-                "|    \\  /    | .'  __ `.   / _     \\\\          \\ .'_ _   \\ |  _ _   \\                     / _     \\  .'_ _   \\  .'  __ `. |  _ _   \\      /   __  \\  |   |  |_ _|  \n"+
-                "|  ,  \\/  ,  |/   '  \\  \\ (`' )/`--' `--.  ,---'/ ( ` )   '| ( ' )  |                    (`' )/`--' / ( ` )   '/   '  \\  \\| ( ' )  |     | ,_/  \\__) |   |  ( ' )  \n"+
-                "|  |\\_   /|  ||___|  /  |(_ o _).       |   \\  . (_ o _)  ||(_ o _) /                   (_ o _).   . (_ o _)  ||___|  /  ||(_ o _) /   ,-./  )       |   '-(_{;}_) \n"+
-                "|  _( )_/ |  |   _.-`   | (_,_). '.     :_ _:  |  (_,_)___|| (_,_).' __                  (_,_). '. |  (_,_)___|   _.-`   || (_,_).' __ \\  '_ '`)     |      (_,_)  \n"+
-                "| (_ o _) |  |.'   _    |.---.  \\  :    (_I_)  '  \\   .---.|  |\\ \\  |  |   _ _     _ _  .---.  \\  :'  \\   .---..'   _    ||  |\\ \\  |  | > (_)  )  __ | _ _--.   |  \n"+
-                "|  (_,_)  |  ||  _( )_  |\\    `-'  |   (_(=)_)  \\  `-'    /|  | \\ `'   /--( ' )---(_I_)-\\    `-'  | \\  `-'    /|  _( )_  ||  | \\ `'   /(  .  .-'_/  )|( ' ) |   |  \n"+
-                "|  |      |  |\\ (_ o _) / \\       /     (_I_)    \\       / |  |  \\    /  (_{;}_) (_(=)_) \\       /   \\       / \\ (_ o _) /|  |  \\    /  `-'`-'     / (_{;}_)|   |  \n"+
-                "'--'      '--' '.(_,_).'   `-...-'      '---'     `'-..-'  ''-'   `'-'  --(_,_)---(_I_)-  `-...-'     `'-..-'   '.(_,_).' ''-'   `'-'     `._____.'  '(_,_) '---'  \n"+
-                "   ____             _______       ,-----.      ___    _  ______        ____     __  _ _    .-'''-.           .-_'''-.      ____    ,---.    ,---.    .-''-.        \n"+
-                " .'  __ `.         \\  ____  \\   .'  .-,  '.  .'   |  | ||    _ `''.    \\   \\   /  /( ' )  / _     \\         '_( )_   \\   .'  __ `. |    \\  /    |  .'_ _   \\       \n"+
-                "/   '  \\  \\        | |    \\ |  / ,-.|  \\ _ \\ |   .'  | || _ | ) _  \\    \\  _. /  '(_{;}_)(`' )/`--'        |(_ o _)|  ' /   '  \\  \\|  ,  \\/  ,  | / ( ` )   '      \n"+
-                "|___|  /  |        | |____/ / ;  \\  '_ /  | :.'  '_  | ||( ''_'  ) |     _( )_ .'  (_,_)(_ o _).           . (_,_)/___| |___|  /  ||  |\\_   /|  |. (_ o _)  |      \n"+
-                "   _.-`   |        |   _ _ '. |  _`,/ \\ _/  |'   ( \\.-.|| . (_) `. | ___(_ o _)'         (_,_). '.         |  |  .-----.   _.-`   ||  _( )_/ |  ||  (_,_)___|      \n"+
-                ".'   _    |        |  ( ' )  \\: (  '\\_/ \\   ;' (`. _` /||(_    ._) '|   |(_,_)'         .---.  \\  :        '  \\  '-   .'.'   _    || (_ o _) |  |'  \\   .---.      \n"+
-                "|  _( )_  |        | (_{;}_) | \\ `\"/  \\  ) / | (_ (_) _)|  (_.\\.' / |   `-'  /          \\    `-'  |         \\  `-'`   | |  _( )_  ||  (_,_)  |  | \\  `-'    /      \n"+
-                "\\ (_ o _) /        |  (_,_)  /  '. \\_/``\".'   \\ /  . \\ /|       .'   \\      /            \\       /           \\        / \\ (_ o _) /|  |      |  |  \\       /       \n"+
-                " '.(_,_).'         /_______.'     '-----'      ``-'`-'' '-----'`      `-..-'              `-...-'             `'-...-'   '.(_,_).' '--'      '--'   `'-..-'        \n"
-                                                                                                                                                                   );
-*/
         do {
             menuGame.displayWelcomeMenu();
             do {
                 launchARoundGame(menuGame);
                 again = menuGame.again();
-                GameState.reinitParty();
             } while (again == 1);
             GameState.reinitAllGameState();
         } while (again == 2);

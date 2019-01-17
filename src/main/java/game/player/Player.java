@@ -7,24 +7,32 @@ import game.constante.GameColor;
 
 
 public abstract class Player {
+    protected Rules rules;
+    protected Player enemy;
 
+    public int[] secretCodeArray;
     public int[] propositionArray;
     public String proposition = "";
-    boolean iWin;
-    protected Rules rules;
-    public String name;
-    public String previousReponse = "";
+    public String previousResponse = "";
 
-    Player(Rules r, String nameTmp) {
+    public String name;
+    protected boolean defender;
+    protected boolean attacker;
+    boolean iWin;
+
+    Player(Rules r, String nameTmp, Player en) {
         rules = r;
         iWin = false;
-        this.name = nameTmp;
-        this.propositionArray = new int[r.nbEltInCode];
+        name = nameTmp;
+        enemy = en;
+        propositionArray = new int[r.nbEltInCode];
+        secretCodeArray = new int[r.nbEltInCode];
         System.out.println("new game.player is create");
     }
 
-    public abstract int[] generateSecretCode();
-    public abstract boolean win();
+    public abstract void generateSecretCode();
+    public abstract void play();
+    public abstract boolean winInAttack();
 
     public void setProposition(String str) {
         this.proposition = str;
@@ -33,11 +41,13 @@ public abstract class Player {
         }
     }
 
+
+
     protected boolean checkSecretCodeFormatFromString(String str) {
         if (str.equals("exit") || str.equals("q"))
             Menu.displayGoodBye();
         if (str.length() != rules.nbEltInCode) {
-            GameColor.RED.print("wrong 2format, please enter exactly" + rules.nbEltInCode + " nombre");
+            GameColor.RED.print("wrong format, please enter exactly " + rules.nbEltInCode + " nombre");
             return false;
         }
         for (int i = 0; i < str.length(); i++) {
@@ -54,5 +64,32 @@ public abstract class Player {
         }
         return true;
     }
-    public abstract void play();
+
+    protected int arrayToInt(int[] array) {
+        int nb = 0;
+        for (int i = 0; i < array.length ; i++){
+            nb = nb * 10 + array[i];
+        }
+        System.out.println("code secret to int = " + nb);
+        return nb;
+    }
+    public void setEnemy(Player en) {
+        enemy = en;
+    }
+
+    public Player getEnemy() {
+        return enemy;
+    }
+    public boolean getDefender() {
+        return defender;
+    }
+    public boolean getAttacker() {
+        return attacker;
+    }
+    public void setDefender(Boolean val) {
+        defender = val;
+    }
+    public void setAttacker(Boolean val) {
+        attacker = val;
+    }
 }

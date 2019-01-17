@@ -4,40 +4,43 @@ import game.GameState;
 import game.rules.Rules;
 import game.constante.GameType;
 import game.constante.GameColor;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.Random;
 
 public class IA extends Player {
+    private static Logger myFirstLogger = LogManager.getLogger(IA.class);
+
     private boolean firstTry = true;
     private boolean secondTry = true;
 
-    public IA(Rules r, String nameTmp) {
-        super(r, nameTmp);
+    public IA(Rules r, String nameTmp, Player en) {
+        super(r, nameTmp, en);
         System.out.println("a new IA is coming, his name is : " + name);
     }
 
     @Override
-    public int[] generateSecretCode() {
+    public void generateSecretCode() {
         Random rand = new Random();
-        int tmpSecretCode[] = new int[rules.nbEltInCode];
-        System.out.println("IA : mon code secret est :");
+        if (GameState.devMode)
+            System.out.println("IA : mon code secret est :");
         for (int i = 0; i < rules.nbEltInCode; i++) {
-            tmpSecretCode[i] = rand.nextInt(rules.nbColorInCode);
-            System.out.println(tmpSecretCode[i]);
+            secretCodeArray[i] = rand.nextInt(rules.nbColorInCode);
+            if (GameState.devMode)
+                System.out.println(secretCodeArray[i]);
         }
-        return tmpSecretCode;
     }
 
     @Override
-    public boolean win() {
+    public boolean winInAttack() {
         iWin = true;
-        GameColor.BLUE.print("IA called " + this.name + " WIN !!!!!");
+        GameColor.BLUE.print("IA called " + this.name + " WIN ATTACK !!!!!");
         return iWin;
     }
 
     @Override
     public void play() {
-        System.out.println("TO DO : implement IA play turn");
         if (GameState.gameChoosed == GameType.MASTERMIND)
             playMastermind();
         else
@@ -45,7 +48,6 @@ public class IA extends Player {
     }
 
     private void playPlusOrMinus() {
-        System.out.println("TO DO : play for plusAndMinus");
         String iaProposition = "";
         if (firstTry) {
             firstTry = false;
@@ -57,21 +59,21 @@ public class IA extends Player {
         }
         if (secondTry) {
             secondTry = false;
-        for (int i = 0; i < rules.nbEltInCode; i++) {
-            if (previousReponse.charAt(i) == '+') {
-                iaProposition += "7"; //Integer.toString(propositionArray[i] + ((10 - propositionArray[i]) / 2));
-            } else if (previousReponse.charAt(i) == '-') {
-                iaProposition += "2" ;//Integer.toString(propositionArray[i] - ((10 - propositionArray[i]) / 2));
-            } else
-                iaProposition += Integer.toString(propositionArray[i]);
+            for (int i = 0; i < rules.nbEltInCode; i++) {
+                if (previousResponse.charAt(i) == '+') {
+                    iaProposition += "7"; //Integer.toString(propositionArray[i] + ((10 - propositionArray[i]) / 2));
+                } else if (previousResponse.charAt(i) == '-') {
+                    iaProposition += "2";//Integer.toString(propositionArray[i] - ((10 - propositionArray[i]) / 2));
+                } else
+                    iaProposition += Integer.toString(propositionArray[i]);
+            }
+            setProposition(iaProposition);
+            return;
         }
-        setProposition(iaProposition);
-           return;
-    }
         for (int i = 0; i < rules.nbEltInCode; i++) {
-            if (previousReponse.charAt(i) == '+') {
+            if (previousResponse.charAt(i) == '+') {
                 iaProposition += Integer.toString(propositionArray[i] + 1);
-            } else if (previousReponse.charAt(i) == '-') {
+            } else if (previousResponse.charAt(i) == '-') {
                 iaProposition += Integer.toString(propositionArray[i] - 1);
             } else
                 iaProposition += Integer.toString(propositionArray[i]);
@@ -81,6 +83,6 @@ public class IA extends Player {
 
     private void playMastermind() {
         System.out.println("TO DO : play for Mastermind");
-        setProposition(Integer.toString(GameState.arrayToInt(GameState.secretCodeArray)));
+        setProposition(Integer.toString(arrayToInt(enemy.secretCodeArray)));
     }
 }

@@ -3,13 +3,17 @@ package game.player;
 import game.GameState;
 import game.rules.Rules;
 import game.constante.GameColor;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
 public class Human extends Player {
 
-    public Human(Rules r, String nameTmp) {
-        super(r, nameTmp);
+    private static Logger myFirstLogger = LogManager.getLogger(Human.class);
+
+    public Human(Rules r, String nameTmp, Player en) {
+        super(r, nameTmp, en);
         //add ask Name.
         System.out.println("a new Human is coming, his name is : " + name);
     }
@@ -17,30 +21,32 @@ public class Human extends Player {
     int[] propositionCode = new int[rules.nbEltInCode];
 
     @Override
-    public int[] generateSecretCode() {
-        System.out.println(name + " is the defender, please choose the secret code. ");
+    public void generateSecretCode() {
+        if (!defender)
+            return;
+        GameColor.YELLOW.print(name + " type human is a defender, please choose your secret code : ");
         String str;
         do {
-            System.out.println("(Secret code must be contains " + rules.nbEltInCode + " nombre)");
+            GameColor.RED.print("Secret code must be contains " + rules.nbEltInCode + " nombre)");
             str = scanString();
         } while (!checkSecretCodeFormatFromString(str));
-        int[] tmpSecretCode = new int[rules.nbEltInCode];
+
         for (int i = 0; i < rules.nbEltInCode; i++) {
-            tmpSecretCode[i] = Character.getNumericValue(str.charAt(i));
+            secretCodeArray[i] = Character.getNumericValue(str.charAt(i));
         }
-        return tmpSecretCode;
     }
 
     @Override
-    public boolean win() {
+    public boolean winInAttack() {
         iWin = true;
-        GameColor.GREEN.print(this.name + " type HUMAN WIN !!!!", true);
+        GameColor.GREEN.print(this.name + " human WIN ATTACK !!!!", true);
         return iWin;
     }
 
     @Override
     public void play() {
-        System.out.println("secret code i search is : " + GameState.arrayToInt(GameState.secretCodeArray));
+        if (GameState.devMode)
+            GameColor.BLUE.print("secret code is : " + arrayToInt(enemy.secretCodeArray));
         String str;
         do {
             str = scanString();
