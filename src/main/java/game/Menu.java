@@ -2,6 +2,7 @@ package game;
 
 import java.util.Scanner;
 
+import game.constante.GameColor;
 import game.constante.GameMode;
 import game.constante.GameType;
 
@@ -17,13 +18,14 @@ public class Menu {
     private void displayGameChoice() {
         StringBuilder msgChoice = new StringBuilder("Please enter number :" );
         for (GameType game : GameType.values()) {
-            msgChoice.append(" - ").append(game.getNumber()).append(" for ").append(game);
+            msgChoice.append(" ").append(game.getNumber()).append(" for ").append(game);
         }
         int nbScan;
 
         System.out.println("Which game do you want to play :");
         for (GameType game : GameType.values()) {
-            System.out.println(game.getNumber() + ") " + game + " : " + game.getDescription());
+            GameColor.BLUE.print(game.getNumber() + ") ", false);
+            System.out.println(game + " : " + game.getDescription());
         }
         do {
             System.out.println(msgChoice);
@@ -66,16 +68,6 @@ public class Menu {
         }
     }
 
-/*
-    private void displayMastermindRules() {
-        System.out.println("YOU ARE IN MASTERMIND GAME - This is game.rules");
-    }
-
-    private void displayPlusAndMinusRules() {
-        System.out.println("YOU ARE IN PLUS AND MINUS GAME - This is game.rules");
-    }
-*/
-
     public int again() {
         String msg = "Make your choice :\n" +
         "1) PLAY AGAIN\n" +
@@ -89,16 +81,7 @@ public class Menu {
         } while (answer < 1 || answer > 3);
         return answer;
     }
-/*
-    private String again(String msg) {
-        System.out.println(msg);
-        char answerChar;
-        do {
-            answerChar = scanChar();
-        } while (answerChar != 'Y' && answerChar != 'N' && answerChar != 'y' && answerChar != 'n');
-        return (answerChar == 'Y' || answerChar == 'y');
-    }
-*/
+
     public static void displayGoodBye() {
         System.out.println("GOOD_BYE");
         System.exit(0);

@@ -2,9 +2,9 @@ package game.constante;
 
 public enum GameMode {
 
-    CHALLENGER(1, "xxxxx TO DO DS"),
-    DEFENDER(2, "xxxxx TO DO DSt2"),
-    DUAL(3, "xxxxx TO DO DSt3"),
+    CHALLENGER(1, "human vs IA, find her secret code"),
+    DEFENDER(2, "human vs IA, choose an secret code and cross fingers"),
+    DUAL(3, "human vs IA, each in turn, try to find the code of the other"),
     EXIT(4, "to quit the Boudy Game");
 
     private int modeNumber;

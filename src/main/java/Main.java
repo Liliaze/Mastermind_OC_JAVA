@@ -35,26 +35,7 @@ public class Main {
         }
 
         RoundGame newRound = null;
-        newRound = new RoundGame(new Human(rules, "ALTHEA", null), new IA(rules, "JEANNETTE", null), rules);
-        /*
-        RoundGame newRound = null;
-        switch (GameState.modeChoosed) {
-            case CHALLENGER:
-                newRound = new RoundGame(new Human(rules, "JEAN"), null, new IA(rules, "MAITRE"), rules);
-                break;
-            case DEFENDER:
-                newRound = new RoundGame(new IA(rules, "JEANNETTE"), null, new Human(rules, "ALTHEA"), rules);
-                break;
-            case DUAL:
-                newRound = new RoundGame(new Human(rules, "ALTHEA"), new IA(rules, "JEANNETTE"), new IA(rules, "GAMEMASTER"), rules);
-                break;
-            case EXIT:
-                menu.displayGoodBye();
-                break;
-            default:
-                menu.displayGoodBye();
-                break;
-        }*/
+        newRound = new RoundGame(new Human(rules, GameState.playerName, null), new IA(rules, "JEANNETTE", null), rules);
         newRound.startRound();
     }
 

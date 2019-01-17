@@ -47,12 +47,11 @@ public abstract class Player {
         if (str.equals("exit") || str.equals("q"))
             Menu.displayGoodBye();
         if (str.length() != rules.nbEltInCode) {
-            GameColor.RED.print("wrong format, please enter exactly " + rules.nbEltInCode + " nombre");
+            GameColor.RED.print("wrong format, please enter exactly " + rules.nbEltInCode + " number");
             return false;
         }
         for (int i = 0; i < str.length(); i++) {
             int value = Character.getNumericValue(str.charAt(i));
-            System.out.println("value = " + value);
             if (value > 9 || value < 0) {
                 GameColor.RED.print("wrong format, not a number : " + str.charAt(i));
                 return false;
@@ -70,7 +69,6 @@ public abstract class Player {
         for (int i = 0; i < array.length ; i++){
             nb = nb * 10 + array[i];
         }
-        System.out.println("code secret to int = " + nb);
         return nb;
     }
     public void setEnemy(Player en) {

@@ -12,31 +12,9 @@ public class RulesMastermind extends Rules {
         super(g, gm);
         nbEltInCode = GameState.nbEltInSecretCodeMastermind;
         nbColorInCode = GameState.nbColorInSecretCodeMastermind;
+        GameState.nbTryMax = GameState.nbTryMaxMastermind;
     }
 
-    /*
-        public boolean checkAttackVictory(Player game.player) {
-            if (game.player == null)
-                return false;
-            System.out.println("!!!!!!! TEST TMP A REVOIR CPMLTMT !!!!! ");
-            int nbGood = 0;
-            int nbBadPlace = 0;
-            for (int i = 0; i < game.GameState.nbEltInSecretCode; i++) {
-                if (game.player.propositionArray[i] < game.GameState.secretCodeArray[i]) {
-                    System.out.println("c'est moins");
-                } else if (game.player.propositionArray[i] == game.GameState.secretCodeArray[i]) {
-                    System.out.println("c'est bon");
-                    nbGood += 1;
-                } else {
-                    nbBadPlace += 1;
-                    System.out.println("c'est sup");
-                }
-            }
-            if (nbGood == game.GameState.nbEltInSecretCode)
-                return game.player.win();
-            return false;
-        }
-    */
     public boolean checkAttackVictory(Player player) {
         if (player == null)
             return false;

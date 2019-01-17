@@ -82,7 +82,11 @@ public class IA extends Player {
     }
 
     private void playMastermind() {
-        System.out.println("TO DO : play for Mastermind");
-        setProposition(Integer.toString(arrayToInt(enemy.secretCodeArray)));
+        Random rand = new Random();
+        String iaProposition = "";
+        for (int i = 0; i < rules.nbEltInCode; i++) {
+            iaProposition += Integer.toString(rand.nextInt(rules.nbColorInCode));;
+        }
+        setProposition(iaProposition);
     }
 }

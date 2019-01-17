@@ -38,24 +38,11 @@ public abstract class Rules {
                 GameColor.GREEN.print("BOTH PLAYER WINS : " + actual.name + " and " + actual.getEnemy().name + " ==> 'EQUALITY', CONGRATULATION ! ! !");
             }
         }
-        if (!playerVictory && endOfTime)
+        if (!playerVictory && endOfTime  && !actual.getDefender() && actual.getEnemy().getDefender())
+            GameColor.PINK.print("Game is over, the Defender " + actual.getEnemy().name + " has a very good secret code and WIN in defense !");
+        else if (!playerVictory && endOfTime)
             GameColor.YELLOW.print("Game is over, nobody win, maybe next time ;)");
 
-        /*
-        if (checkAttackVictory(secretAgent2))
-        {
-            playerVictory = true;
-            if (endOfTime) {
-                GameColor.PINK.print("But time is out, so " + secretAgent1.name + " WIN TOO IN DEFENSE");
-            }
-            if (playerVictory && endOfTime) {
-                GameColor.GREEN.print("BOTH PLAYER WINS IN ATTACK AND IN DEFENSE : " + secretAgent1.name + " and " + secretAgent2.name + " ==> ' PERFECT EQUALITY', CONGRATULATION ! ! !");
-            }
-            else if (playerVictory) {
-                GameColor.GREEN.print("BOTH PLAYER WINS IN ATTACK: " + secretAgent1.name + " and " + secretAgent2.name + " ==> 'EQUALITY', CONGRATULATION ! ! !");
-            }
-        }
-*/
         return playerVictory || endOfTime;
     }
 
