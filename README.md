@@ -27,14 +27,11 @@ A configuration file `config.properties` is at your disposal to modify the main 
 
 | property              | example of value     | description |
 |:----------------------|:---------------------|:-------------------------|
-|CONFIG DEVELOPER MODE  |
 | devMode               | true | if you want display the secret code to find |
 | yourDevName           | ALTHEA   | to set your player name  |
-| MASTERMIND PROPERTIES |
 | nbTryMaxMastermind    | 12  | define the number of turn of the Mastermind game  |
-| nbEltMastermind       | 4  | define the number of ellement that composed the secret code of the Mastermind game  |
+| nbEltMastermind       | 4  | define the number of element that composed the secret code of the Mastermind game  |
 | nbColorMastermind     | 6  | define the number of color or here the max value of one number of the secret code of the Mastermind game  |
-| PLUS OR MINUS PROPERTIES  |
 | nbTryMaxPlusOrMinus   | 8  | define the number of turn of the +/- search game   |
 | nbEltPlusOrMinus      | 4  | define the number of element that composed the secret code of the +/- search game |
 
