@@ -36,6 +36,29 @@ A configuration file `config.properties` is at your disposal to modify the main 
 | nbEltPlusOrMinus      | 4  | define the number of element that composed the secret code of the +/- search game |
 
 
-**install**
+**To play**
 
-**run**
+***install***
+
+Install Jdk 1.8+ and Maven 3+ :
+
+ - on windows :
+    https://www.mkyong.com/maven/how-to-install-maven-in-windows
+ 
+
+ - on linux :
+    - Get maven 3 and install it
+    - Get java 8+ and install it
+    - Export JAVA_HOME + MAVEN_HOME in .bashrc
+    - Add them to PATH
+
+***build***
+```sh
+mvn clean install -f pom.xml
+```
+
+***run***
+```sh 
+Java -jar target/build-SNAPSHOT.jar
+```
+
