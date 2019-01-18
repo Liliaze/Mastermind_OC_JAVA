@@ -8,6 +8,8 @@ import game.player.Player;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.Arrays;
+
 public abstract class Rules {
 
     private static Logger myFirstLogger = LogManager.getLogger(Rules.class);
@@ -32,6 +34,7 @@ public abstract class Rules {
         }
 
         if (checkAttackVictory(actual)) {
+            displaySolution(actual);
             playerVictory = true;
             if (endOfTime) {
                 GameColor.PINK.print("But time is out, so " + actual.getEnemy().name + " WIN TOO IN DEFENSE");
@@ -42,8 +45,16 @@ public abstract class Rules {
             GameColor.PINK.print("\nGame is over, the Defender " + actual.getEnemy().name + " has a very good secret code and WIN in defense !");
         else if (!playerVictory && endOfTime)
             GameColor.YELLOW.print("\nGame is over, nobody win, maybe next time ;)");
-
+        if (endOfTime)
+            displaySolution(actual);
         return playerVictory || endOfTime;
+    }
+
+    private void displaySolution(Player actual) {
+        if (actual.getDefender())
+            GameColor.PINK.print("The secret code of " + actual.name + " was : " + Arrays.toString(actual.secretCodeArray));
+        if (actual.getEnemy().getDefender())
+            GameColor.PINK.print("The secret code of " + actual.getEnemy().name + " was : " + Arrays.toString(actual.secretCodeArray));
     }
 
     public abstract boolean checkAttackVictory(Player player);
