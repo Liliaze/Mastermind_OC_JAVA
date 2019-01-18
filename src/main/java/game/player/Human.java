@@ -1,6 +1,5 @@
 package game.player;
 
-import game.GameState;
 import game.rules.Rules;
 import game.constante.GameColor;
 import org.apache.log4j.LogManager;
@@ -16,8 +15,6 @@ public class Human extends Player {
         super(r, nameTmp, en);
         myFirstLogger.debug("a new Human is coming, his name is : " + name);
     }
-
-    int[] propositionCode = new int[rules.nbEltInCode];
 
     @Override
     public void generateSecretCode() {
@@ -39,6 +36,7 @@ public class Human extends Player {
     public boolean winInAttack() {
         iWin = true;
         GameColor.GREEN.print("\n" + this.name + " human WIN ATTACK !!!!", true);
+        myFirstLogger.info(this.name + " human WIN ATTACK" );
         return iWin;
     }
 

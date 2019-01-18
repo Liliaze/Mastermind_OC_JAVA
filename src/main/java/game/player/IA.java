@@ -39,6 +39,7 @@ public class IA extends Player {
     public boolean winInAttack() {
         iWin = true;
         GameColor.BLUE.print("\nIA called " + this.name + " WIN ATTACK !!!!!");
+        myFirstLogger.info(this.name + " human WIN ATTACK" );
         return iWin;
     }
 

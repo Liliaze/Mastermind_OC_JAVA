@@ -1,4 +1,4 @@
-*project3 : Put your logic to the test**
+*project3 : Put your logic to the test*
 
 **Description**
 

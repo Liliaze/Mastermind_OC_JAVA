@@ -36,16 +36,6 @@ public class Menu {
         }
     }
 
-    private int scanInt() {
-        Scanner sc = new Scanner(System.in);
-        try {
-            return sc.nextInt();
-        }
-        catch (Exception e) {
-        }
-        return 0;
-    }
-
     private void displayModeChoice() {
         StringBuilder msgChoice = new StringBuilder("Please enter number :" );
         for (GameMode mode : GameMode.values()) {
@@ -88,5 +78,16 @@ public class Menu {
     public static void displayGoodBye() {
         System.out.println("GOOD_BYE");
         System.exit(0);
+    }
+
+
+    private int scanInt() {
+        Scanner sc = new Scanner(System.in);
+        try {
+            return sc.nextInt();
+        }
+        catch (Exception e) {
+        }
+        return 0;
     }
 }

@@ -17,6 +17,33 @@ public class Main {
 
     private static Logger myFirstLogger = LogManager.getLogger(Main.class);
 
+    public static void main(String[] args) {
+        Menu menuGame = new Menu();
+        int again;
+
+        DOMConfigurator.configure("src/main/resources/log4j.xml");
+
+        for (int i = 0; i < 50; ++i) System.out.println();
+        GameColor.CYAN.print(
+                "_  _ ____ ____ ___ ____ ____     ____ ____ ____ ____ ____ _  _  \n" +
+                        "|\\/| |__| [__   |  |___ |__/     [__  |___ |__| |__/ |    |__|  \n" +
+                        "|  | |  | ___]  |  |___ |  \\ ___ ___] |___ |  | |  \\ |___ |  |  \n" +
+                        "                                                                \n" +
+                        "____    ___  ____ _  _ ___  _   _ . ____    ____ ____ _  _ ____ \n" +
+                        "|__|    |__] |  | |  | |  \\  \\_/  ' [__     | __ |__| |\\/| |___ \n" +
+                        "|  |    |__] |__| |__| |__/   |     ___]    |__] |  | |  | |___ \n");
+
+        do {
+            menuGame.displayWelcomeMenu();
+            do {
+                launchARoundGame(menuGame);
+                again = menuGame.again();
+            } while (again == 1);
+            GameState.reinitAllGameState();
+        } while (again == 2);
+        menuGame.displayGoodBye();
+    }
+
     private static void launchARoundGame(Menu menu) {
         Rules rules = null;
         switch (GameState.gameChoosed) {
@@ -34,35 +61,8 @@ public class Main {
                 break;
         }
 
-        RoundGame newRound = null;
-        newRound = new RoundGame(new Human(rules, GameState.playerName, null), new IA(rules, "JEANNETTE", null), rules);
+        RoundGame newRound = new RoundGame(new Human(rules, GameState.playerName, null), new IA(rules, "JEANNETTE", null), rules);
         newRound.startRound();
     }
 
-    public static void main(String[] args) {
-        Menu menuGame = new Menu();
-        int again;
-
-        DOMConfigurator.configure("src/main/resources/log4j.xml");
-
-        for (int i = 0; i < 50; ++i) System.out.println();
-        GameColor.CYAN.print(
-                "_  _ ____ ____ ___ ____ ____     ____ ____ ____ ____ ____ _  _  \n" +
-                "|\\/| |__| [__   |  |___ |__/     [__  |___ |__| |__/ |    |__|  \n" +
-                "|  | |  | ___]  |  |___ |  \\ ___ ___] |___ |  | |  \\ |___ |  |  \n" +
-                "                                                                \n" +
-                "____    ___  ____ _  _ ___  _   _ . ____    ____ ____ _  _ ____ \n" +
-                "|__|    |__] |  | |  | |  \\  \\_/  ' [__     | __ |__| |\\/| |___ \n" +
-                "|  |    |__] |__| |__| |__/   |     ___]    |__] |  | |  | |___ \n");
-
-        do {
-            menuGame.displayWelcomeMenu();
-            do {
-                launchARoundGame(menuGame);
-                again = menuGame.again();
-            } while (again == 1);
-            GameState.reinitAllGameState();
-        } while (again == 2);
-        menuGame.displayGoodBye();
-    }
 }

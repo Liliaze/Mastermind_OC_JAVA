@@ -1,0 +1,178 @@
+2019-01-17 15:48:01 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 15:49:49 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 15:50:27 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 15:51:38 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 15:52:01 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 15:52:12 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 15:53:13 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 15:53:55 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 15:54:16 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 15:55:33 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 15:55:51 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 15:59:11 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 15:59:24 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 15:59:45 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is DUAL, first player is : ALTHEA
+2019-01-17 16:01:17 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is DUAL, first player is : ALTHEA
+2019-01-17 16:02:16 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 16:02:27 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 16:03:04 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 16:03:28 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 16:08:25 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 16:08:39 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is DUAL, first player is : ALTHEA
+2019-01-17 16:08:49 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is DUAL, first player is : ALTHEA
+2019-01-17 16:10:34 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is DUAL, first player is : ALTHEA
+2019-01-17 16:12:22 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 16:12:34 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 21:40:00 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 21:40:14 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 21:41:43 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 21:42:20 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 21:43:16 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 21:49:41 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 21:50:03 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 21:52:02 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 21:52:19 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 21:59:05 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 21:59:13 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 21:59:52 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 21:59:52 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 22:00:11 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 22:00:11 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 22:03:28 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 22:03:42 INFO  RoundGame:57 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-17 22:03:42 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-17 22:14:35 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-17 22:14:49 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : LUCIEN
+2019-01-18 10:59:52 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:04:00 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:04:00 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:04:00 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:04:32 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:04:32 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:04:32 INFO  RoundGame:57 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:18:33 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:18:33 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:18:33 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:21:21 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:21:21 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:21:21 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:24:42 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:24:42 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:24:42 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:26:28 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:29:11 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:29:11 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:29:11 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:29:57 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:30:38 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:30:38 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:30:38 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:30:52 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:30:52 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:30:52 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:31:12 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:31:35 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:31:35 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:32:25 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:32:43 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:32:43 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:32:46 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:32:53 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:32:53 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:32:56 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:33:07 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:33:07 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:33:15 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:35:36 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:35:36 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:35:40 INFO  RoundGame:62 - A new round start game is : PLUS_AND_MINUS and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:39:04 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:39:04 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:39:11 INFO  RoundGame:63 - A new round start game is : PLUS_AND_MINUS and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:39:40 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:39:40 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:39:44 INFO  RoundGame:63 - A new round start game is : PLUS_AND_MINUS and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:40:22 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:40:22 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:40:26 INFO  RoundGame:63 - A new round start game is : PLUS_AND_MINUS and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:40:41 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:40:41 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:40:43 INFO  RoundGame:63 - A new round start game is : PLUS_AND_MINUS and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:40:56 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:41:14 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:41:14 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:41:18 INFO  RoundGame:63 - A new round start game is : PLUS_AND_MINUS and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:41:28 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:41:28 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:41:28 INFO  RoundGame:63 - A new round start game is : MASTERMIND and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:44:16 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:44:16 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:44:16 INFO  RoundGame:65 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:44:23 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:44:23 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:44:23 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:46:14 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:47:00 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:47:00 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:47:00 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:48:46 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:48:48 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:48:48 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:48:48 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 11:49:06 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:49:06 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:49:25 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:49:25 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:49:34 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:49:34 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:49:37 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:49:37 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:49:51 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:49:51 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:49:54 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:50:05 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:50:05 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:50:07 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:50:13 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:50:57 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:50:57 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:51:00 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DUAL, first player is : ALTHEA
+2019-01-18 11:51:05 INFO  Rules:31 - Nb turn equals max, round is over
+2019-01-18 11:52:01 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:52:01 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:52:03 INFO  RoundGame:65 - A new round start game is : PLUS_AND_MINUS and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:52:08 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:52:08 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:52:10 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:52:10 INFO  Rules:32 - Nb turn equals max, round is over
+2019-01-18 11:52:44 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:52:44 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:52:45 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:52:45 INFO  Rules:32 - Nb turn equals max, round is over
+2019-01-18 11:53:09 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:53:09 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:53:11 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:53:11 INFO  Rules:32 - Nb turn equals max, round is over
+2019-01-18 11:53:42 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:53:42 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:53:44 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:53:44 INFO  Rules:32 - Nb turn equals max, round is over
+2019-01-18 11:54:39 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:54:39 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:54:41 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 11:54:41 INFO  Rules:31 - 
+Nb turn equals max, round is over
+2019-01-18 11:54:48 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 11:54:48 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 11:54:48 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 12:19:36 DEBUG Human:17 - a new Human is coming, his name is : null
+2019-01-18 12:19:36 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 12:19:36 INFO  RoundGame:65 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : null
+2019-01-18 12:22:14 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 12:22:14 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 12:22:14 INFO  RoundGame:65 - A new round start game is : PLUS_AND_MINUS and mode is CHALLENGER, first player is : ALTHEA
+2019-01-18 12:22:27 DEBUG Human:17 - a new Human is coming, his name is : ALTHEA
+2019-01-18 12:22:27 DEBUG IA:20 - a new IA is coming, his name is : JEANNETTE
+2019-01-18 12:22:31 INFO  RoundGame:65 - A new round start game is : MASTERMIND and mode is DEFENDER, first player is : JEANNETTE
+2019-01-18 12:22:31 INFO  Rules:33 - 
+Nb turn equals max, round is over

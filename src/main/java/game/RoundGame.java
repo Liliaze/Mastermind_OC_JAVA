@@ -1,7 +1,6 @@
 package game;
 
 import game.constante.GameColor;
-import game.constante.GameMode;
 import game.rules.Rules;
 import game.player.Player;
 import org.apache.log4j.LogManager;
@@ -12,6 +11,7 @@ import java.util.Arrays;
 public class RoundGame {
 
     private static Logger myFirstLogger = LogManager.getLogger(RoundGame.class);
+
     Player secretAgent1;
     Player secretAgent2;
     Rules rules;
@@ -115,7 +115,7 @@ public class RoundGame {
 
     private void generateCode() {
         if (!secretAgent1.getDefender() && !secretAgent2.getDefender()) {
-            myFirstLogger.error("Error one of both player mus be defender");
+            myFirstLogger.error("Error one of both player must be defender");
             Menu.displayGoodBye();
         }
         secretAgent1.generateSecretCode();

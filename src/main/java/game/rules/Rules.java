@@ -24,7 +24,6 @@ public abstract class Rules {
         gameMode = gm;
     }
 
-
     public boolean checkEnd(int nbTurn, Player actual) {
         boolean playerVictory = false;
         boolean endOfTime = false;

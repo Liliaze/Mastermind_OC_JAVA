@@ -9,16 +9,17 @@ import game.constante.GameColor;
 public abstract class Player {
     protected Rules rules;
     protected Player enemy;
+    public String name;
 
     public int[] secretCodeArray;
     public int[] propositionArray;
     public String proposition = "";
     public String previousResponse = "";
 
-    public String name;
+
     protected boolean defender;
     protected boolean attacker;
-    boolean iWin;
+    protected boolean iWin;
 
     Player(Rules r, String nameTmp, Player en) {
         rules = r;
@@ -33,14 +34,33 @@ public abstract class Player {
     public abstract void play();
     public abstract boolean winInAttack();
 
+
+    public void setEnemy(Player en) {
+        enemy = en;
+    }
+    public void setDefender(Boolean val) {
+        defender = val;
+    }
+    public void setAttacker(Boolean val) {
+        attacker = val;
+    }
+
+    public Player getEnemy() {
+        return enemy;
+    }
+    public boolean getDefender() {
+        return defender;
+    }
+    public boolean getAttacker() {
+        return attacker;
+    }
+
     public void setProposition(String str) {
         this.proposition = str;
         for (int i = 0; i < rules.nbEltInCode; i++) {
             propositionArray[i] = Character.getNumericValue(str.charAt(i));
         }
     }
-
-
 
     protected boolean checkSecretCodeFormatFromString(String str) {
         if (str.equals("exit") || str.equals("q"))
@@ -63,30 +83,4 @@ public abstract class Player {
         return true;
     }
 
-    protected int arrayToInt(int[] array) {
-        int nb = 0;
-        for (int i = 0; i < array.length ; i++){
-            nb = nb * 10 + array[i];
-        }
-        return nb;
-    }
-    public void setEnemy(Player en) {
-        enemy = en;
-    }
-
-    public Player getEnemy() {
-        return enemy;
-    }
-    public boolean getDefender() {
-        return defender;
-    }
-    public boolean getAttacker() {
-        return attacker;
-    }
-    public void setDefender(Boolean val) {
-        defender = val;
-    }
-    public void setAttacker(Boolean val) {
-        attacker = val;
-    }
 }
