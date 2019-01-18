@@ -17,25 +17,28 @@ public class IA extends Player {
 
     public IA(Rules r, String nameTmp, Player en) {
         super(r, nameTmp, en);
-        System.out.println("a new IA is coming, his name is : " + name);
+        myFirstLogger.debug("a new IA is coming, his name is : " + name);
     }
 
     @Override
     public void generateSecretCode() {
         Random rand = new Random();
+        GameColor.YELLOW.print(name + " type IA is a defender she choice a secret code.");
         if (GameState.devMode)
-            System.out.println("IA : mon code secret est :");
+            GameColor.GREY.print("IA : \"my secret code is ", false);
         for (int i = 0; i < rules.nbEltInCode; i++) {
             secretCodeArray[i] = rand.nextInt(rules.nbColorInCode);
             if (GameState.devMode)
-                System.out.println(secretCodeArray[i]);
+                GameColor.GREY.print(Integer.toString(secretCodeArray[i]), false);
         }
+        if (GameState.devMode)
+            System.out.println("\".");
     }
 
     @Override
     public boolean winInAttack() {
         iWin = true;
-        GameColor.BLUE.print("IA called " + this.name + " WIN ATTACK !!!!!");
+        GameColor.BLUE.print("\nIA called " + this.name + " WIN ATTACK !!!!!");
         return iWin;
     }
 
@@ -85,7 +88,8 @@ public class IA extends Player {
         Random rand = new Random();
         String iaProposition = "";
         for (int i = 0; i < rules.nbEltInCode; i++) {
-            iaProposition += Integer.toString(rand.nextInt(rules.nbColorInCode));;
+            iaProposition += Integer.toString(rand.nextInt(rules.nbColorInCode));
+            ;
         }
         setProposition(iaProposition);
     }

@@ -14,8 +14,7 @@ public class Human extends Player {
 
     public Human(Rules r, String nameTmp, Player en) {
         super(r, nameTmp, en);
-        //add ask Name.
-        System.out.println("a new Human is coming, his name is : " + name);
+        myFirstLogger.debug("a new Human is coming, his name is : " + name);
     }
 
     int[] propositionCode = new int[rules.nbEltInCode];
@@ -27,7 +26,7 @@ public class Human extends Player {
         GameColor.YELLOW.print(name + " type human is a defender, please choose your secret code : ");
         String str;
         do {
-            GameColor.RED.print("Secret code must be contains " + rules.nbEltInCode + " nombre)");
+            GameColor.RED.print("Secret code must be contains " + rules.nbEltInCode + " number");
             str = scanString();
         } while (!checkSecretCodeFormatFromString(str));
 
@@ -39,14 +38,12 @@ public class Human extends Player {
     @Override
     public boolean winInAttack() {
         iWin = true;
-        GameColor.GREEN.print(this.name + " human WIN ATTACK !!!!", true);
+        GameColor.GREEN.print("\n" + this.name + " human WIN ATTACK !!!!", true);
         return iWin;
     }
 
     @Override
     public void play() {
-        if (GameState.devMode)
-            GameColor.BLUE.print("secret code is : " + arrayToInt(enemy.secretCodeArray));
         String str;
         do {
             str = scanString();
@@ -59,7 +56,6 @@ public class Human extends Player {
 
         try {
             String str = sc.nextLine();
-            System.out.println("string = " + str);
             return str;
         } catch (Exception e) {
         }

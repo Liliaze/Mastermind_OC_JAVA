@@ -27,7 +27,6 @@ public abstract class Player {
         enemy = en;
         propositionArray = new int[r.nbEltInCode];
         secretCodeArray = new int[r.nbEltInCode];
-        System.out.println("new game.player is create");
     }
 
     public abstract void generateSecretCode();

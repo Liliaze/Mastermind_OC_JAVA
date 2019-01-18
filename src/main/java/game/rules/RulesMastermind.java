@@ -24,7 +24,7 @@ public class RulesMastermind extends Rules {
         if (nbEltInCode != player.propositionArray.length)
             GameColor.RED.print("WARNING !!!! bug dans le nombre d'élément, fix this bug", true);
 
-        System.out.print("Proposal : " + player.proposition + " -> Response : ");
+        GameColor.BLACK.print("Proposal : " + player.proposition + " -> Response : ", false);
 
         for (int i = 0; i < player.propositionArray.length; i++) {
             if (player.propositionArray[i] == player.getEnemy().secretCodeArray[i])
@@ -39,7 +39,7 @@ public class RulesMastermind extends Rules {
             }
         }
         if (goodPlace == nbEltInCode) {
-            GameColor.GREEN.print(goodPlace + " presents", true);
+            GameColor.GREEN.print(goodPlace + " good place :D", true);
             return player.winInAttack();
         }
         if (goodPlace == 0 && present == 0)

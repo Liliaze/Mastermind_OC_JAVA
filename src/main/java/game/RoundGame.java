@@ -7,6 +7,8 @@ import game.player.Player;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.Arrays;
+
 public class RoundGame {
 
     private static Logger myFirstLogger = LogManager.getLogger(RoundGame.class);
@@ -26,14 +28,20 @@ public class RoundGame {
         secretAgent1 = one;
         secretAgent2 = two;
         displayRoles();
+        GameColor.BLUE.print("\n\n\nWELCOME IN : " + rls.gameType);
+        GameColor.BLUE.print(secretAgent1.name + " FIGHT " + secretAgent2.name);
+        GameColor.CYAN.print(rls.gameType.getRulesDsc());
+        GameColor.CYAN.print("Warning, your number of turn to win is limited");
+        GameColor.CYAN.print("The secretCode is constituted of ",false);
+        GameColor.YELLOW.print(Integer.toString(rls.nbEltInCode), false);
+        GameColor.CYAN.print(" number until ",false);
+        GameColor.YELLOW.print(Integer.toString(rls.nbColorInCode), false);
+        GameColor.CYAN.print(" number/color max. Good luck !");
         generateCode();
         secretAgent1.setEnemy(secretAgent2);
         secretAgent2.setEnemy(secretAgent1);
 
-        GameColor.BLUE.print("WELCOME IN : " + rls.gameType);
-        GameColor.BLUE.print(secretAgent1.name + " FIGHT " + secretAgent2.name);
-        GameColor.CYAN.print(rls.gameType.getRulesDsc());
-        GameColor.CYAN.print("The secretCode is constituted of " + rls.nbEltInCode + " number/color. Good luck !");
+
     }
 
     public void startRound() {
@@ -58,9 +66,15 @@ public class RoundGame {
         do {
             currentPlayer = nextPlayer;
             if (nbTrying == GameState.nbTryMax - 1)
-                GameColor.YELLOW.print("Tour = " + nbTrying + "/" + GameState.nbTryMax + " warning, this is the last : " + currentPlayer.name);
-            else
-                GameColor.PINK.print("Tour = " + nbTrying + "/" + GameState.nbTryMax + " : " + currentPlayer.name);
+                GameColor.YELLOW.print("\nTurn = " + nbTrying + "/" + GameState.nbTryMax + " warning, this is the last : " + currentPlayer.name);
+            else {
+                GameColor.PINK.print("\nTurn = ", false);
+                GameColor.YELLOW.print(Integer.toString(nbTrying), false);
+                GameColor.PINK.print("/" + GameState.nbTryMax + " : ", false);
+                GameColor.YELLOW.print(currentPlayer.name);
+            }
+            if (GameState.devMode)
+                    GameColor.GREY.print("secret code is : " + Arrays.toString(currentPlayer.getEnemy().secretCodeArray));
             currentPlayer.play();
             nbTrying += 1;
             if (currentPlayer.getEnemy().getAttacker()) {

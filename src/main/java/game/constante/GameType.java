@@ -2,8 +2,10 @@ package game.constante;
 
 public enum GameType {
 
-    PLUS_AND_MINUS(1, "search with plus or minus a secret code", "The defender generate a code and the ..."),
-    MASTERMIND(2, "find a secret combination in a minimum of shot", "The defender indicates if a number of your proposal exists in the code and if it is well placed"),
+    PLUS_AND_MINUS(1, "search with plus or minus a secret code",
+            "In this mode you try to guess the secret code of the computer, for each proposal the computer will tell you in answer if each of the numbers composing the proposed code is bigger '+', smaller '-', or equal '=' than the one to find."),
+    MASTERMIND(2, "find a secret combination in a minimum of shot",
+            "in this mode you try to guess the secret code of the computer, for each proposal the computer will tell you in response if each of the numbers composing the proposed code is in the secret code 'present' and if it is well placed 'good place'."),
     EXIT(3, "to quit this Boudy Game's", "exit");
 
     private int gameNumber;

@@ -28,7 +28,7 @@ public abstract class Rules {
         boolean endOfTime = false;
         if (nbTurn >= GameState.nbTryMax) {
             endOfTime = true;
-            myFirstLogger.info("Nb turn equals max, round is over");
+            myFirstLogger.info("\nNb turn equals max, round is over");
         }
 
         if (checkAttackVictory(actual)) {
@@ -39,9 +39,9 @@ public abstract class Rules {
             }
         }
         if (!playerVictory && endOfTime  && !actual.getDefender() && actual.getEnemy().getDefender())
-            GameColor.PINK.print("Game is over, the Defender " + actual.getEnemy().name + " has a very good secret code and WIN in defense !");
+            GameColor.PINK.print("\nGame is over, the Defender " + actual.getEnemy().name + " has a very good secret code and WIN in defense !");
         else if (!playerVictory && endOfTime)
-            GameColor.YELLOW.print("Game is over, nobody win, maybe next time ;)");
+            GameColor.YELLOW.print("\nGame is over, nobody win, maybe next time ;)");
 
         return playerVictory || endOfTime;
     }

@@ -56,7 +56,8 @@ public class Menu {
         System.out.println("You choice '" + GameState.gameChoosed + "' game !");
         System.out.println("Please now choose your MODE : ");
         for (GameMode mode : GameMode.values()) {
-            System.out.println(mode.getNumber() + ") " + mode + " : " + mode.getDescription());
+            GameColor.BLUE.print(mode.getNumber() + ") ", false);
+            System.out.println(mode + " : " + mode.getDescription());
         }
 
         do {
@@ -69,14 +70,16 @@ public class Menu {
     }
 
     public int again() {
-        String msg = "Make your choice :\n" +
-        "1) PLAY AGAIN\n" +
-        "2) MENU\n" +
-        "3) EXIT";
         int answer;
 
         do {
-            System.out.println(msg);
+            System.out.println("\nMake your choice :");
+            GameColor.BLUE.print("1) ", false);
+            System.out.println("PLAY AGAIN");
+            GameColor.BLUE.print("2) ", false);
+            System.out.println("MENU");
+            GameColor.BLUE.print("3) ", false);
+            System.out.println("EXIT");
             answer = scanInt();
         } while (answer < 1 || answer > 3);
         return answer;
