@@ -53,6 +53,7 @@ public class IA extends Player {
 
     private void playPlusOrMinus() {
         String iaProposition = "";
+        //premier tour
         if (firstTry) {
             firstTry = false;
             for (int i = 0; i < rules.nbEltInCode; i++) {
@@ -61,19 +62,21 @@ public class IA extends Player {
             setProposition(iaProposition);
             return;
         }
+        //second tour
         if (secondTry) {
             secondTry = false;
             for (int i = 0; i < rules.nbEltInCode; i++) {
                 if (previousResponse.charAt(i) == '+') {
-                    iaProposition += "7"; //Integer.toString(propositionArray[i] + ((10 - propositionArray[i]) / 2));
+                    iaProposition += "7";
                 } else if (previousResponse.charAt(i) == '-') {
-                    iaProposition += "2";//Integer.toString(propositionArray[i] - ((10 - propositionArray[i]) / 2));
+                    iaProposition += "2";
                 } else
                     iaProposition += Integer.toString(propositionArray[i]);
             }
             setProposition(iaProposition);
             return;
         }
+        //autres tour
         for (int i = 0; i < rules.nbEltInCode; i++) {
             if (previousResponse.charAt(i) == '+') {
                 iaProposition += Integer.toString(propositionArray[i] + 1);
@@ -88,9 +91,9 @@ public class IA extends Player {
     private void playMastermind() {
         Random rand = new Random();
         String iaProposition = "";
+
         for (int i = 0; i < rules.nbEltInCode; i++) {
             iaProposition += Integer.toString(rand.nextInt(rules.nbColorInCode));
-            ;
         }
         setProposition(iaProposition);
     }

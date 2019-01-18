@@ -60,5 +60,8 @@ mvn clean install -f pom.xml
 ***run***
 ```sh 
 Java -jar target/build-SNAPSHOT.jar
+or
+Java -jar target/build-SNAPSHOT.jar true
+or
+Java -jar target/build-SNAPSHOT.jar false
 ```
-

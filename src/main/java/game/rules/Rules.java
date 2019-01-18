@@ -53,7 +53,7 @@ public abstract class Rules {
         if (actual.getDefender())
             GameColor.PINK.print("The secret code of " + actual.name + " was : " + Arrays.toString(actual.secretCodeArray));
         if (actual.getEnemy().getDefender())
-            GameColor.PINK.print("The secret code of " + actual.getEnemy().name + " was : " + Arrays.toString(actual.secretCodeArray));
+            GameColor.PINK.print("The secret code of " + actual.getEnemy().name + " was : " + Arrays.toString(actual.getEnemy().secretCodeArray));
     }
 
     public abstract boolean checkAttackVictory(Player player);

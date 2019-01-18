@@ -18,10 +18,16 @@ public class Main {
     private static Logger myFirstLogger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
+
         Menu menuGame = new Menu();
         int again;
 
         DOMConfigurator.configure("src/main/resources/log4j.xml");
+        if (args.length == 1 && (args[0].equals("true") || args[0].equals("false")))
+            GameState.devMode = Boolean.parseBoolean(args[0]);
+        else {
+            //to do gestion d'erreur
+        }
 
         for (int i = 0; i < 50; ++i) System.out.println();
         GameColor.CYAN.print(

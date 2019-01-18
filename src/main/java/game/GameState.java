@@ -1,7 +1,10 @@
 package game;
 
+import game.constante.GameColor;
 import game.constante.GameType;
 import game.constante.GameMode;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,6 +12,8 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class GameState {
+    private static Logger myFirstLogger = LogManager.getLogger(GameState.class);
+
     private static GameState ourInstance = new GameState();
 
     public static GameState getInstance() {
@@ -53,7 +58,9 @@ public class GameState {
             if (inputStream != null) {
                 prop.load(inputStream);
             } else {
-                throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+                myFirstLogger.error("property file '" + propFileName + "' not found in the classpath");
+                GameColor.RED.print("Sorry, one file is missing, error is encounter");
+                Menu.displayGoodBye();
             }
 
             nbEltInSecretCodePlusOrMinus = Integer.parseInt(prop.getProperty("nbEltPlusOrMinus"));
@@ -61,7 +68,8 @@ public class GameState {
             nbColorInSecretCodeMastermind = Integer.parseInt(prop.getProperty("nbColorMastermind"));
             nbTryMaxPlusOrMinus = Integer.parseInt(prop.getProperty("nbTryMaxPlusOrMinus"));
             nbTryMaxMastermind = Integer.parseInt(prop.getProperty("nbTryMaxMastermind"));
-            devMode = Boolean.parseBoolean(prop.getProperty("devMode"));
+            if (!devMode)
+                devMode = Boolean.parseBoolean(prop.getProperty("devMode"));
             playerName = prop.getProperty("yourDevName");
 
         } catch (Exception e) {
