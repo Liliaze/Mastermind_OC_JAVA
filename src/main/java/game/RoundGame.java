@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 public class RoundGame {
 
-    private static Logger myFirstLogger = LogManager.getLogger(RoundGame.class);
+    private static final Logger myFirstLogger = LogManager.getLogger(RoundGame.class);
 
     Player secretAgent1;
     Player secretAgent2;
@@ -29,13 +29,13 @@ public class RoundGame {
         secretAgent2 = two;
         displayRoles();
         GameColor.BLUE.print("\n\n\nWELCOME IN : " + rls.gameType);
-        GameColor.BLUE.print(secretAgent1.name + " FIGHT " + secretAgent2.name);
+        GameColor.BLUE.print(secretAgent1.getName() + " FIGHT " + secretAgent2.getName());
         GameColor.CYAN.print(rls.gameType.getRulesDsc());
         GameColor.CYAN.print("Warning, your number of turn to win is limited");
         GameColor.CYAN.print("The secretCode is constituted of ",false);
         GameColor.YELLOW.print(Integer.toString(rls.nbEltInCode), false);
         GameColor.CYAN.print(" number until ",false);
-        GameColor.YELLOW.print(Integer.toString(rls.nbColorInCode), false);
+        GameColor.YELLOW.print(Integer.toString(rls.nbColorInCode  + 1), false);
         GameColor.CYAN.print(" number/color max. Good luck !");
         generateCode();
         secretAgent1.setEnemy(secretAgent2);
@@ -62,19 +62,19 @@ public class RoundGame {
             nextPlayer = secretAgent2;
         }
 
-        myFirstLogger.info("A new round start game is : " + GameState.gameChoosed + " and mode is " + GameState.modeChoosed + ", first player is : " + currentPlayer.name);
+        myFirstLogger.info("A new round start game is : " + GameState.gameChoosed + " and mode is " + GameState.modeChoosed + ", first player is : " + currentPlayer.getName());
         do {
             currentPlayer = nextPlayer;
             if (nbTrying == GameState.nbTryMax - 1)
-                GameColor.YELLOW.print("\nTurn = " + nbTrying + "/" + GameState.nbTryMax + " warning, this is the last : " + currentPlayer.name);
+                GameColor.YELLOW.print("\nTurn = " + nbTrying + "/" + GameState.nbTryMax + " warning, this is the last : " + currentPlayer.getName());
             else {
                 GameColor.PINK.print("\nTurn = ", false);
                 GameColor.YELLOW.print(Integer.toString(nbTrying), false);
                 GameColor.PINK.print("/" + GameState.nbTryMax + " : ", false);
-                GameColor.YELLOW.print(currentPlayer.name);
+                GameColor.YELLOW.print(currentPlayer.getName());
             }
             if (GameState.devMode)
-                    GameColor.GREY.print("secret code is : " + Arrays.toString(currentPlayer.getEnemy().secretCodeArray));
+                    GameColor.GREY.print("secret code is : " + Arrays.toString(currentPlayer.getEnemy().getSecretCodeArray()));
             currentPlayer.play();
             nbTrying += 1;
             if (currentPlayer.getEnemy().getAttacker()) {

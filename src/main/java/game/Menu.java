@@ -16,7 +16,8 @@ public class Menu {
     }
 
     private void displayGameChoice() {
-        StringBuilder msgChoice = new StringBuilder("Please enter number :" );
+        final StringBuilder msgChoice = new StringBuilder("Please enter number :" );
+
         for (GameType game : GameType.values()) {
             msgChoice.append(" ").append(game.getNumber()).append(" for ").append(game);
         }
@@ -37,7 +38,8 @@ public class Menu {
     }
 
     private void displayModeChoice() {
-        StringBuilder msgChoice = new StringBuilder("Please enter number :" );
+        final StringBuilder msgChoice = new StringBuilder("Please enter number :" );
+
         for (GameMode mode : GameMode.values()) {
             msgChoice.append(" - ").append(mode.getNumber()).append(" for ").append(mode);
         }
@@ -82,7 +84,8 @@ public class Menu {
 
 
     private int scanInt() {
-        Scanner sc = new Scanner(System.in);
+        final Scanner sc = new Scanner(System.in);
+
         try {
             return sc.nextInt();
         }

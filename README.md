@@ -59,9 +59,9 @@ mvn clean install -f pom.xml
 
 ***run***
 ```sh 
-Java -jar target/build-SNAPSHOT.jar
+Java -jar target/Mastermind-1.0-SNAPSHOT.jar
 or
-Java -jar target/build-SNAPSHOT.jar true
+Java -jar target/Mastermind-1.0-SNAPSHOT.jar true
 or
-Java -jar target/build-SNAPSHOT.jar false
+Java -jar target/Mastermind-1.0-SNAPSHOT.jar false
 ```

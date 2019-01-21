@@ -21,16 +21,16 @@ public class RulesPlusAndMinus extends Rules {
         int nbEqualityFinded = 0;
         player.previousResponse = "";
 
-        if ( nbEltInCode != player.propositionArray.length)
+        if ( nbEltInCode != player.getPropositionArray().length)
             GameColor.RED.print("WARNING !!!! bug in the number of element, fix this bug", true);
 
-        GameColor.BLACK.print("Proposal: " + player.proposition + " -> Response : ", false);
+        GameColor.BLACK.print("Proposal: " + player.getProposition() + " -> Response : ", false);
 
-        for (int i = 0 ; i < player.propositionArray.length ; i++) {
-            if (player.propositionArray[i] < player.getEnemy().secretCodeArray[i]) {
+        for (int i = 0; i < player.getPropositionArray().length ; i++) {
+            if (player.getPropositionArray()[i] < player.getEnemy().getSecretCodeArray()[i]) {
                 player.previousResponse += "+";
                 GameColor.YELLOW.print("+",false);
-            } else if (player.propositionArray[i] == player.getEnemy().secretCodeArray[i]) {
+            } else if (player.getPropositionArray()[i] == player.getEnemy().getSecretCodeArray()[i]) {
                 player.previousResponse += "=";
                 GameColor.GREEN.print("=",false);
                 nbEqualityFinded += 1;

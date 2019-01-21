@@ -8,9 +8,9 @@ public enum GameType {
             "in this mode you try to guess the secret code of the computer, for each proposal the computer will tell you in response if each of the numbers composing the proposed code is in the secret code 'present' and if it is well placed 'good place'."),
     EXIT(3, "to quit this Boudy Game's", "exit");
 
-    private int gameNumber;
-    private String description;
-    private String rulesDsc;
+    private final int gameNumber;
+    private final String description;
+    private final String rulesDsc;
 
     GameType(int nb, String desc, String rDsc) {
         this.gameNumber = nb;

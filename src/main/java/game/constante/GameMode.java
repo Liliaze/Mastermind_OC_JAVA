@@ -7,8 +7,8 @@ public enum GameMode {
     DUAL(3, "human vs IA, each in turn, try to find the code of the other"),
     EXIT(4, "to quit the Boudy Game");
 
-    private int modeNumber;
-    private String description;
+    private final int modeNumber;
+    private final String description;
 
     GameMode(int nb, String desc) {
         this.modeNumber = nb;

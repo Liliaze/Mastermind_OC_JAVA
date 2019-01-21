@@ -12,7 +12,7 @@ public enum GameColor {
     GREY("\033[37m"),
     DEFAULT("\033[0m");
 
-    private String color;
+    private final String color;
 
     GameColor(String color) {
         this.color = color;

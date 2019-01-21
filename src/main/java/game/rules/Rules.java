@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public abstract class Rules {
 
-    private static Logger myFirstLogger = LogManager.getLogger(Rules.class);
+    private static final Logger myFirstLogger = LogManager.getLogger(Rules.class);
 
     public int nbEltInCode = 0;
     public int nbColorInCode = 0;
@@ -32,28 +32,23 @@ public abstract class Rules {
             myFirstLogger.info("\nNb turn equals max, round is over");
         }
 
-        if (checkAttackVictory(actual)) {
-            displaySolution(actual);
-            playerVictory = true;
-            if (endOfTime) {
-                GameColor.PINK.print("But time is out, so " + actual.getEnemy().name + " WIN TOO IN DEFENSE");
-                GameColor.GREEN.print("BOTH PLAYER WINS : " + actual.name + " and " + actual.getEnemy().name + " ==> 'EQUALITY', CONGRATULATION ! ! !");
-            }
-        }
+        playerVictory = checkAttackVictory(actual);
+        if (playerVictory)
+            myFirstLogger.info(actual.getName() + "win the round game");
         if (!playerVictory && endOfTime  && !actual.getDefender() && actual.getEnemy().getDefender())
-            GameColor.PINK.print("\nGame is over, the Defender " + actual.getEnemy().name + " has a very good secret code and WIN in defense !");
+            GameColor.PINK.print("\nGame is over, the Defender " + actual.getEnemy().getName() + " has a very good secret code and WIN in defense !");
         else if (!playerVictory && endOfTime)
             GameColor.YELLOW.print("\nGame is over, nobody win, maybe next time ;)");
-        if (endOfTime)
+        if (endOfTime || playerVictory)
             displaySolution(actual);
         return playerVictory || endOfTime;
     }
 
     private void displaySolution(Player actual) {
         if (actual.getDefender())
-            GameColor.PINK.print("The secret code of " + actual.name + " was : " + Arrays.toString(actual.secretCodeArray));
+            GameColor.PINK.print("The secret code of " + actual.getName() + " was : " + Arrays.toString(actual.getSecretCodeArray()));
         if (actual.getEnemy().getDefender())
-            GameColor.PINK.print("The secret code of " + actual.getEnemy().name + " was : " + Arrays.toString(actual.getEnemy().secretCodeArray));
+            GameColor.PINK.print("The secret code of " + actual.getEnemy().getName() + " was : " + Arrays.toString(actual.getEnemy().getSecretCodeArray()));
     }
 
     public abstract boolean checkAttackVictory(Player player);

@@ -1,3 +1,4 @@
+import game.Game;
 import game.GameState;
 import game.Menu;
 import game.RoundGame;
@@ -11,24 +12,30 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
-import java.io.IOException;
-
 public class Main {
 
     private static Logger myFirstLogger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
 
-        Menu menuGame = new Menu();
+        final Menu menuGame = new Menu();
         int again;
 
         DOMConfigurator.configure("src/main/resources/log4j.xml");
-        if (args.length == 1 && (args[0].equals("true") || args[0].equals("false")))
-            GameState.devMode = Boolean.parseBoolean(args[0]);
-        else {
-            //to do gestion d'erreur
+
+        //check if the devMode is precise in argument of programme
+        if (args.length == 1){
+            if (args[0].equals("true") || args[0].equals("false")){
+                GameState.devMode = Boolean.parseBoolean(args[0]);
+            }
+            else {
+                myFirstLogger.error("bad value in argv");
+                GameColor.RED.print("bad value in argv");
+                Menu.displayGoodBye();
+            }
         }
 
+        //Title of the game for welcome
         for (int i = 0; i < 50; ++i) System.out.println();
         GameColor.CYAN.print(
                 "_  _ ____ ____ ___ ____ ____     ____ ____ ____ ____ ____ _  _  \n" +
@@ -39,36 +46,17 @@ public class Main {
                         "|__|    |__] |  | |  | |  \\  \\_/  ' [__     | __ |__| |\\/| |___ \n" +
                         "|  |    |__] |__| |__| |__/   |     ___]    |__] |  | |  | |___ \n");
 
+        //main game loop
         do {
             menuGame.displayWelcomeMenu();
             do {
-                launchARoundGame(menuGame);
+                new Game();
                 again = menuGame.again();
             } while (again == 1);
             GameState.reinitAllGameState();
         } while (again == 2);
+
+        //before quit the game
         menuGame.displayGoodBye();
     }
-
-    private static void launchARoundGame(Menu menu) {
-        Rules rules = null;
-        switch (GameState.gameChoosed) {
-            case PLUS_AND_MINUS:
-                rules = new RulesPlusAndMinus(GameState.gameChoosed, GameState.modeChoosed);
-                break;
-            case MASTERMIND:
-                rules = new RulesMastermind(GameState.gameChoosed, GameState.modeChoosed);
-                break;
-            case EXIT:
-                menu.displayGoodBye();
-                break;
-            default:
-                menu.displayGoodBye();
-                break;
-        }
-
-        RoundGame newRound = new RoundGame(new Human(rules, GameState.playerName, null), new IA(rules, "JEANNETTE", null), rules);
-        newRound.startRound();
-    }
-
 }

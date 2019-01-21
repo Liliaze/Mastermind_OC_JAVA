@@ -1,31 +1,53 @@
 package game.player;
 
-import game.GameState;
 import game.Menu;
 import game.rules.Rules;
 import game.constante.GameColor;
 
 
 public abstract class Player {
-    protected Rules rules;
-    protected Player enemy;
-    public String name;
+    private Rules rules;
+    private Player enemy;
+    private String name;
 
-    public int[] secretCodeArray;
-    public int[] propositionArray;
-    public String proposition = "";
+    private int[] secretCodeArray;
+    private int[] propositionArray;
+    private String proposition = "";
     public String previousResponse = "";
 
 
-    protected boolean defender;
-    protected boolean attacker;
-    protected boolean iWin;
+    private boolean defender;
+    private boolean attacker;
+    private boolean iWin;
+
+
+    public Rules getRules() { return rules; }
+    public Player getEnemy() { return enemy; }
+    public String getName() { return name; }
+    public int[] getSecretCodeArray() {  return secretCodeArray; }
+    public int[] getPropositionArray() { return propositionArray; }
+    public String getProposition() { return proposition; }
+    public boolean isDefender() { return defender;}
+    public boolean isAttacker() { return attacker; }
+    public boolean getDefender() { return defender; }
+    public boolean getAttacker() { return attacker; }
+    public boolean isiWin() { return iWin; }
+
+    public void setRules(Rules rules) { this.rules = rules; }
+    public void setEnemy(Player en) { enemy = en; }
+    public void setName(String name) { this.name = name; }
+    public void setSecretCodeArray(int[] secretCodeArray) { this.secretCodeArray = secretCodeArray; }
+    public void setDefender(boolean defender) { this.defender = defender; }
+    public void setAttacker(boolean attacker) { this.attacker = attacker; }
+    public void setDefender(Boolean val) { defender = val; }
+    public void setAttacker(Boolean val) { attacker = val; }
+    public void setiWin(boolean iWin) { this.iWin = iWin; }
 
     Player(Rules r, String nameTmp, Player en) {
-        rules = r;
-        iWin = false;
-        name = nameTmp;
-        enemy = en;
+        setRules(r);
+        setiWin(false);
+        setName(nameTmp);
+        setEnemy(en);
         propositionArray = new int[r.nbEltInCode];
         secretCodeArray = new int[r.nbEltInCode];
     }
@@ -34,26 +56,6 @@ public abstract class Player {
     public abstract void play();
     public abstract boolean winInAttack();
 
-
-    public void setEnemy(Player en) {
-        enemy = en;
-    }
-    public void setDefender(Boolean val) {
-        defender = val;
-    }
-    public void setAttacker(Boolean val) {
-        attacker = val;
-    }
-
-    public Player getEnemy() {
-        return enemy;
-    }
-    public boolean getDefender() {
-        return defender;
-    }
-    public boolean getAttacker() {
-        return attacker;
-    }
 
     public void setProposition(String str) {
         this.proposition = str;

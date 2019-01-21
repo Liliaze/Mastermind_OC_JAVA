@@ -11,7 +11,7 @@ public class RulesMastermind extends Rules {
     public RulesMastermind(GameType g, GameMode gm) {
         super(g, gm);
         nbEltInCode = GameState.nbEltInSecretCodeMastermind;
-        nbColorInCode = GameState.nbColorInSecretCodeMastermind;
+        nbColorInCode = GameState.nbColorInSecretCodeMastermind - 1;
         GameState.nbTryMax = GameState.nbTryMaxMastermind;
     }
 
@@ -21,17 +21,17 @@ public class RulesMastermind extends Rules {
         int goodPlace = 0;
         int present = 0;
 
-        if (nbEltInCode != player.propositionArray.length)
+        if (nbEltInCode != player.getPropositionArray().length)
             GameColor.RED.print("WARNING !!!! bug dans le nombre d'élément, fix this bug", true);
 
-        GameColor.BLACK.print("Proposal : " + player.proposition + " -> Response : ", false);
+        GameColor.BLACK.print("Proposal : " + player.getProposition() + " -> Response : ", false);
 
-        for (int i = 0; i < player.propositionArray.length; i++) {
-            if (player.propositionArray[i] == player.getEnemy().secretCodeArray[i])
+        for (int i = 0; i < player.getPropositionArray().length; i++) {
+            if (player.getPropositionArray()[i] == player.getEnemy().getSecretCodeArray()[i])
                 goodPlace += 1;
             else {
-                for (int j = 0; j < player.propositionArray.length; j++) {
-                    if (player.propositionArray[i] == player.getEnemy().secretCodeArray[j]) {
+                for (int j = 0; j < player.getPropositionArray().length; j++) {
+                    if (player.getPropositionArray()[i] == player.getEnemy().getSecretCodeArray()[j]) {
                         present += 1;
                         break;
                     }

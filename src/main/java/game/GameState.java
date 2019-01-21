@@ -49,9 +49,9 @@ public class GameState {
     }
 
     private void loadProperties() throws IOException {
-       try {
-            Properties prop = new Properties();
-            String propFileName = "config.properties";
+        try {
+            final Properties prop = new Properties();
+            final String propFileName = "config.properties";
 
             inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
 
@@ -62,15 +62,16 @@ public class GameState {
                 GameColor.RED.print("Sorry, one file is missing, error is encounter");
                 Menu.displayGoodBye();
             }
-
-            nbEltInSecretCodePlusOrMinus = Integer.parseInt(prop.getProperty("nbEltPlusOrMinus"));
-            nbEltInSecretCodeMastermind = Integer.parseInt(prop.getProperty("nbEltMastermind"));
-            nbColorInSecretCodeMastermind = Integer.parseInt(prop.getProperty("nbColorMastermind"));
-            nbTryMaxPlusOrMinus = Integer.parseInt(prop.getProperty("nbTryMaxPlusOrMinus"));
-            nbTryMaxMastermind = Integer.parseInt(prop.getProperty("nbTryMaxMastermind"));
+            nbEltInSecretCodePlusOrMinus = checkPropertyValue(Integer.parseInt(prop.getProperty("nbEltPlusOrMinus")), 4, 0, 10);
+            nbEltInSecretCodeMastermind = checkPropertyValue(Integer.parseInt(prop.getProperty("nbEltMastermind")), 4, 0, 10);
+            nbColorInSecretCodeMastermind = checkPropertyValue(Integer.parseInt(prop.getProperty("nbColorMastermind")), 4, 4, 10);
+            nbTryMaxPlusOrMinus = checkPropertyValue(Integer.parseInt(prop.getProperty("nbTryMaxPlusOrMinus")), 8, 1, Integer.MAX_VALUE);
+            nbTryMaxMastermind = checkPropertyValue(Integer.parseInt(prop.getProperty("nbTryMaxMastermind")), 15, 1, Integer.MAX_VALUE);
             if (!devMode)
                 devMode = Boolean.parseBoolean(prop.getProperty("devMode"));
             playerName = prop.getProperty("yourDevName");
+            if (playerName.length() < 1 || playerName.length() > 150 ||playerName.equals(""))
+                playerName = "ALTHEA";
 
         } catch (Exception e) {
             System.out.println("Exception: " + e);
@@ -79,4 +80,10 @@ public class GameState {
         }
     }
 
+    private int checkPropertyValue(int valueToTest, int defaultValue, int min, int max) {
+        if (valueToTest < min || valueToTest > max)
+            return defaultValue;
+        else
+            return valueToTest;
+    }
 }

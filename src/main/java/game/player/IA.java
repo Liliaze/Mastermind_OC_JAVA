@@ -10,26 +10,26 @@ import org.apache.log4j.Logger;
 import java.util.Random;
 
 public class IA extends Player {
-    private static Logger myFirstLogger = LogManager.getLogger(IA.class);
+    private static final Logger myFirstLogger = LogManager.getLogger(IA.class);
 
     private boolean firstTry = true;
     private boolean secondTry = true;
 
     public IA(Rules r, String nameTmp, Player en) {
         super(r, nameTmp, en);
-        myFirstLogger.debug("a new IA is coming, his name is : " + name);
+        myFirstLogger.debug("a new IA is coming, his name is : " + getName());
     }
 
     @Override
     public void generateSecretCode() {
         Random rand = new Random();
-        GameColor.YELLOW.print(name + " type IA is a defender she choice a secret code.");
+        GameColor.YELLOW.print(getName() + " type IA is a defender she choice a secret code.");
         if (GameState.devMode)
             GameColor.GREY.print("IA : \"my secret code is ", false);
-        for (int i = 0; i < rules.nbEltInCode; i++) {
-            secretCodeArray[i] = rand.nextInt(rules.nbColorInCode);
+        for (int i = 0; i < getRules().nbEltInCode; i++) {
+            getSecretCodeArray()[i] = rand.nextInt(getRules().nbColorInCode);
             if (GameState.devMode)
-                GameColor.GREY.print(Integer.toString(secretCodeArray[i]), false);
+                GameColor.GREY.print(Integer.toString(getSecretCodeArray()[i]), false);
         }
         if (GameState.devMode)
             System.out.println("\".");
@@ -37,10 +37,10 @@ public class IA extends Player {
 
     @Override
     public boolean winInAttack() {
-        iWin = true;
-        GameColor.BLUE.print("\nIA called " + this.name + " WIN ATTACK !!!!!");
-        myFirstLogger.info(this.name + " human WIN ATTACK" );
-        return iWin;
+        setiWin(true);
+        GameColor.BLUE.print("\nIA called " + this.getName() + " WIN ATTACK !!!!!");
+        myFirstLogger.info(this.getName() + " human WIN ATTACK" );
+        return isiWin();
     }
 
     @Override
@@ -56,7 +56,7 @@ public class IA extends Player {
         //premier tour
         if (firstTry) {
             firstTry = false;
-            for (int i = 0; i < rules.nbEltInCode; i++) {
+            for (int i = 0; i < getRules().nbEltInCode; i++) {
                 iaProposition += "5";
             }
             setProposition(iaProposition);
@@ -65,25 +65,25 @@ public class IA extends Player {
         //second tour
         if (secondTry) {
             secondTry = false;
-            for (int i = 0; i < rules.nbEltInCode; i++) {
+            for (int i = 0; i < getRules().nbEltInCode; i++) {
                 if (previousResponse.charAt(i) == '+') {
                     iaProposition += "7";
                 } else if (previousResponse.charAt(i) == '-') {
                     iaProposition += "2";
                 } else
-                    iaProposition += Integer.toString(propositionArray[i]);
+                    iaProposition += Integer.toString(getPropositionArray()[i]);
             }
             setProposition(iaProposition);
             return;
         }
         //autres tour
-        for (int i = 0; i < rules.nbEltInCode; i++) {
+        for (int i = 0; i < getRules().nbEltInCode; i++) {
             if (previousResponse.charAt(i) == '+') {
-                iaProposition += Integer.toString(propositionArray[i] + 1);
+                iaProposition += Integer.toString(getPropositionArray()[i] + 1);
             } else if (previousResponse.charAt(i) == '-') {
-                iaProposition += Integer.toString(propositionArray[i] - 1);
+                iaProposition += Integer.toString(getPropositionArray()[i] - 1);
             } else
-                iaProposition += Integer.toString(propositionArray[i]);
+                iaProposition += Integer.toString(getPropositionArray()[i]);
         }
         setProposition(iaProposition);
     }
@@ -92,8 +92,8 @@ public class IA extends Player {
         Random rand = new Random();
         String iaProposition = "";
 
-        for (int i = 0; i < rules.nbEltInCode; i++) {
-            iaProposition += Integer.toString(rand.nextInt(rules.nbColorInCode));
+        for (int i = 0; i < getRules().nbEltInCode; i++) {
+            iaProposition += Integer.toString(rand.nextInt(getRules().nbColorInCode));
         }
         setProposition(iaProposition);
     }
