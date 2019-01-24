@@ -43,7 +43,11 @@ public class RulesMastermind extends Rules {
             return player.winInAttack();
         }
         if (goodPlace == 0 && present == 0)
-            GameColor.PINK.print("Missing, nothing...", false);
+        {
+            player.setPreviousResponse("Missing, nothing...");
+            GameColor.PINK.print(player.getPreviousResponse(), true);
+            return false;
+        }
         if (present > 0) {
             GameColor.YELLOW.print(present > 1 ? present + " presents" : present + " present", false);
             if (goodPlace > 0)
@@ -52,6 +56,7 @@ public class RulesMastermind extends Rules {
         if (goodPlace > 0)
             GameColor.GREEN.print(goodPlace > 1 ? goodPlace + " goods places" : goodPlace + " good place", false);
         System.out.print("\n");
+        player.setPreviousResponse(present + ";" + goodPlace);
         return false;
     }
 

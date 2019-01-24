@@ -19,7 +19,7 @@ public class RulesPlusAndMinus extends Rules {
         if (player == null)
             return false;
         int nbEqualityFinded = 0;
-        player.previousResponse = "";
+        player.setPreviousResponse("");
 
         if ( getNbEltInCode() != player.getPropositionArray().length)
             GameColor.RED.print("WARNING !!!! bug in the number of element, fix this bug", true);
@@ -28,14 +28,14 @@ public class RulesPlusAndMinus extends Rules {
 
         for (int i = 0; i < player.getPropositionArray().length ; i++) {
             if (player.getPropositionArray()[i] < player.getEnemy().getSecretCodeArray()[i]) {
-                player.previousResponse += "+";
+                player.setPreviousResponse(player.getPreviousResponse() + "+");
                 GameColor.YELLOW.print("+",false);
             } else if (player.getPropositionArray()[i] == player.getEnemy().getSecretCodeArray()[i]) {
-                player.previousResponse += "=";
+                player.setPreviousResponse(player.getPreviousResponse() +  "=");
                 GameColor.GREEN.print("=",false);
                 nbEqualityFinded += 1;
             } else {
-                player.previousResponse += "-";
+                player.setPreviousResponse(player.getPreviousResponse() +  "-");
                 GameColor.YELLOW.print("-",false);
             }
         }

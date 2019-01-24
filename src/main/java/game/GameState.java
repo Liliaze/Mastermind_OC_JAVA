@@ -28,6 +28,7 @@ public class GameState {
     public static int nbTryMax;
     public static int nbTryMaxMastermind;
     public static int nbTryMaxPlusOrMinus;
+    public static int nbPossibleTry;
     public static String playerName;
     public static boolean devMode;
 

@@ -15,7 +15,7 @@ public class RoundGame {
     Player secretAgent1;
     Player secretAgent2;
     Rules rules;
-    int nbTrying;
+    private int nbTrying;
 
     public RoundGame(Player one, Player two, Rules rls) {
         if (one == null || two == null || rls == null) {
@@ -75,6 +75,7 @@ public class RoundGame {
             }
             if (GameState.devMode)
                     GameColor.GREY.print("secret code is : " + Arrays.toString(currentPlayer.getEnemy().getSecretCodeArray()));
+            GameState.nbPossibleTry = nbTrying - GameState.nbTryMax;
             currentPlayer.play();
             nbTrying += 1;
             if (currentPlayer.getEnemy().getAttacker()) {

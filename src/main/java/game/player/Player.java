@@ -13,7 +13,10 @@ public abstract class Player {
     private int[] secretCodeArray;
     private int[] propositionArray;
     private String proposition = "";
-    public String previousResponse = "";
+    private String previousResponse = "";
+
+
+
 
 
     private boolean defender;
@@ -32,6 +35,8 @@ public abstract class Player {
     public boolean getDefender() { return defender; }
     public boolean getAttacker() { return attacker; }
     public boolean isiWin() { return iWin; }
+    public String getPreviousResponse() { return previousResponse; }
+
 
     public void setRules(Rules rules) { this.rules = rules; }
     public void setEnemy(Player en) { enemy = en; }
@@ -42,6 +47,7 @@ public abstract class Player {
     public void setDefender(Boolean val) { defender = val; }
     public void setAttacker(Boolean val) { attacker = val; }
     public void setiWin(boolean iWin) { this.iWin = iWin; }
+    public void setPreviousResponse(String previousResponse) { this.previousResponse = previousResponse; }
 
     Player(Rules r, String nameTmp, Player en) {
         setRules(r);
