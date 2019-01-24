@@ -9,8 +9,8 @@ public class RulesPlusAndMinus extends Rules {
 
     public RulesPlusAndMinus(GameType g, GameMode gm) {
         super(g, gm);
-        nbEltInCode = GameState.nbEltInSecretCodePlusOrMinus;
-        nbColorInCode = 9;
+        setNbEltInCode(GameState.nbEltInSecretCodePlusOrMinus);
+        setNbColorInCode(9);
         GameState.nbTryMax = GameState.nbTryMaxPlusOrMinus;
 
     }
@@ -21,7 +21,7 @@ public class RulesPlusAndMinus extends Rules {
         int nbEqualityFinded = 0;
         player.previousResponse = "";
 
-        if ( nbEltInCode != player.getPropositionArray().length)
+        if ( getNbEltInCode() != player.getPropositionArray().length)
             GameColor.RED.print("WARNING !!!! bug in the number of element, fix this bug", true);
 
         GameColor.BLACK.print("Proposal: " + player.getProposition() + " -> Response : ", false);
@@ -40,7 +40,7 @@ public class RulesPlusAndMinus extends Rules {
             }
         }
         System.out.println();
-        if (nbEqualityFinded == nbEltInCode)
+        if (nbEqualityFinded == getNbEltInCode())
             return player.winInAttack();
         return false;
     }

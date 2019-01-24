@@ -28,14 +28,14 @@ public class RoundGame {
         secretAgent1 = one;
         secretAgent2 = two;
         displayRoles();
-        GameColor.BLUE.print("\n\n\nWELCOME IN : " + rls.gameType);
+        GameColor.BLUE.print("\n\n\nWELCOME IN : " + rls.getGameType());
         GameColor.BLUE.print(secretAgent1.getName() + " FIGHT " + secretAgent2.getName());
-        GameColor.CYAN.print(rls.gameType.getRulesDsc());
+        GameColor.CYAN.print(rls.getGameType().getRulesDsc());
         GameColor.CYAN.print("Warning, your number of turn to win is limited");
         GameColor.CYAN.print("The secretCode is constituted of ",false);
-        GameColor.YELLOW.print(Integer.toString(rls.nbEltInCode), false);
+        GameColor.YELLOW.print(Integer.toString(rls.getNbEltInCode()), false);
         GameColor.CYAN.print(" number until ",false);
-        GameColor.YELLOW.print(Integer.toString(rls.nbColorInCode  + 1), false);
+        GameColor.YELLOW.print(Integer.toString(rls.getNbColorInCode()  + 1), false);
         GameColor.CYAN.print(" number/color max. Good luck !");
         generateCode();
         secretAgent1.setEnemy(secretAgent2);
@@ -85,7 +85,7 @@ public class RoundGame {
     }
 
     private void displayRoles() {
-        switch (rules.gameMode) {
+        switch (rules.getGameMode()) {
             case CHALLENGER:
                 secretAgent1.setAttacker(true);
                 secretAgent1.setDefender(false);

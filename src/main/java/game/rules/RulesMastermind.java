@@ -10,8 +10,8 @@ public class RulesMastermind extends Rules {
 
     public RulesMastermind(GameType g, GameMode gm) {
         super(g, gm);
-        nbEltInCode = GameState.nbEltInSecretCodeMastermind;
-        nbColorInCode = GameState.nbColorInSecretCodeMastermind - 1;
+        setNbEltInCode(GameState.nbEltInSecretCodeMastermind);
+        setNbColorInCode(GameState.nbColorInSecretCodeMastermind - 1);
         GameState.nbTryMax = GameState.nbTryMaxMastermind;
     }
 
@@ -21,7 +21,7 @@ public class RulesMastermind extends Rules {
         int goodPlace = 0;
         int present = 0;
 
-        if (nbEltInCode != player.getPropositionArray().length)
+        if (getNbEltInCode() != player.getPropositionArray().length)
             GameColor.RED.print("WARNING !!!! bug dans le nombre d'élément, fix this bug", true);
 
         GameColor.BLACK.print("Proposal : " + player.getProposition() + " -> Response : ", false);
@@ -38,7 +38,7 @@ public class RulesMastermind extends Rules {
                 }
             }
         }
-        if (goodPlace == nbEltInCode) {
+        if (goodPlace == getNbEltInCode()) {
             GameColor.GREEN.print(goodPlace + " good place :D", true);
             return player.winInAttack();
         }

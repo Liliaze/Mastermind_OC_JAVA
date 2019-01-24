@@ -1,6 +1,5 @@
 package game.rules;
 import game.GameState;
-import game.RoundGame;
 import game.constante.GameColor;
 import game.constante.GameMode;
 import game.constante.GameType;
@@ -14,10 +13,23 @@ public abstract class Rules {
 
     private static final Logger myFirstLogger = LogManager.getLogger(Rules.class);
 
-    public int nbEltInCode = 0;
-    public int nbColorInCode = 0;
-    public GameType gameType;
-    public GameMode gameMode;
+    private int nbEltInCode = 0;
+    private int nbColorInCode = 0;
+    private GameType gameType;
+    private GameMode gameMode;
+
+    public int getNbEltInCode() { return nbEltInCode; }
+    public void setNbEltInCode(int nbEltInCode) { this.nbEltInCode = nbEltInCode; }
+
+    public int getNbColorInCode() { return nbColorInCode; }
+    public void setNbColorInCode(int nbColorInCode) { this.nbColorInCode = nbColorInCode; }
+
+    public GameType getGameType() { return gameType; }
+    public void setGameType(GameType gameType) { this.gameType = gameType; }
+
+    public GameMode getGameMode() { return gameMode; }
+    public void setGameMode(GameMode gameMode) { this.gameMode = gameMode; }
+
 
     Rules(GameType g, GameMode gm) {
         gameType = g;

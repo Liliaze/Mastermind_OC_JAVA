@@ -26,8 +26,8 @@ public class IA extends Player {
         GameColor.YELLOW.print(getName() + " type IA is a defender she choice a secret code.");
         if (GameState.devMode)
             GameColor.GREY.print("IA : \"my secret code is ", false);
-        for (int i = 0; i < getRules().nbEltInCode; i++) {
-            getSecretCodeArray()[i] = rand.nextInt(getRules().nbColorInCode);
+        for (int i = 0; i < getRules().getNbEltInCode(); i++) {
+            getSecretCodeArray()[i] = rand.nextInt(getRules().getNbColorInCode());
             if (GameState.devMode)
                 GameColor.GREY.print(Integer.toString(getSecretCodeArray()[i]), false);
         }
@@ -56,7 +56,7 @@ public class IA extends Player {
         //premier tour
         if (firstTry) {
             firstTry = false;
-            for (int i = 0; i < getRules().nbEltInCode; i++) {
+            for (int i = 0; i < getRules().getNbEltInCode(); i++) {
                 iaProposition += "5";
             }
             setProposition(iaProposition);
@@ -65,7 +65,7 @@ public class IA extends Player {
         //second tour
         if (secondTry) {
             secondTry = false;
-            for (int i = 0; i < getRules().nbEltInCode; i++) {
+            for (int i = 0; i < getRules().getNbEltInCode(); i++) {
                 if (previousResponse.charAt(i) == '+') {
                     iaProposition += "7";
                 } else if (previousResponse.charAt(i) == '-') {
@@ -77,7 +77,7 @@ public class IA extends Player {
             return;
         }
         //autres tour
-        for (int i = 0; i < getRules().nbEltInCode; i++) {
+        for (int i = 0; i < getRules().getNbEltInCode(); i++) {
             if (previousResponse.charAt(i) == '+') {
                 iaProposition += Integer.toString(getPropositionArray()[i] + 1);
             } else if (previousResponse.charAt(i) == '-') {
@@ -92,8 +92,8 @@ public class IA extends Player {
         Random rand = new Random();
         String iaProposition = "";
 
-        for (int i = 0; i < getRules().nbEltInCode; i++) {
-            iaProposition += Integer.toString(rand.nextInt(getRules().nbColorInCode));
+        for (int i = 0; i < getRules().getNbEltInCode(); i++) {
+            iaProposition += Integer.toString(rand.nextInt(getRules().getNbEltInCode()));
         }
         setProposition(iaProposition);
     }

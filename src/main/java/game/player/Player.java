@@ -48,8 +48,8 @@ public abstract class Player {
         setiWin(false);
         setName(nameTmp);
         setEnemy(en);
-        propositionArray = new int[r.nbEltInCode];
-        secretCodeArray = new int[r.nbEltInCode];
+        propositionArray = new int[r.getNbEltInCode()];
+        secretCodeArray = new int[r.getNbEltInCode()];
     }
 
     public abstract void generateSecretCode();
@@ -59,7 +59,7 @@ public abstract class Player {
 
     public void setProposition(String str) {
         this.proposition = str;
-        for (int i = 0; i < rules.nbEltInCode; i++) {
+        for (int i = 0; i < rules.getNbEltInCode(); i++) {
             propositionArray[i] = Character.getNumericValue(str.charAt(i));
         }
     }
@@ -67,8 +67,8 @@ public abstract class Player {
     protected boolean checkSecretCodeFormatFromString(String str) {
         if (str.equals("exit") || str.equals("q"))
             Menu.displayGoodBye();
-        if (str.length() != rules.nbEltInCode) {
-            GameColor.RED.print("wrong format, please enter exactly " + rules.nbEltInCode + " number");
+        if (str.length() != rules.getNbEltInCode()) {
+            GameColor.RED.print("wrong format, please enter exactly " + rules.getNbEltInCode() + " number");
             return false;
         }
         for (int i = 0; i < str.length(); i++) {
@@ -77,7 +77,7 @@ public abstract class Player {
                 GameColor.RED.print("wrong format, not a number : " + str.charAt(i));
                 return false;
             }
-            if (value > rules.nbColorInCode) {
+            if (value > rules.getNbColorInCode()) {
                 GameColor.RED.print("wrong format, this nb/color : " + str.charAt(i) + " is not in rules");
                 return false;
             }

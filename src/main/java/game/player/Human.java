@@ -23,11 +23,11 @@ public class Human extends Player {
         GameColor.YELLOW.print(getName() + " type human is a defender, please choose your secret code : ");
         String str;
         do {
-            GameColor.RED.print("Secret code must be contains " + getRules().nbEltInCode + " number");
+            GameColor.RED.print("Secret code must be contains " + getRules().getNbEltInCode() + " number");
             str = scanString();
         } while (!checkSecretCodeFormatFromString(str));
 
-        for (int i = 0; i < getRules().nbEltInCode; i++) {
+        for (int i = 0; i < getRules().getNbEltInCode(); i++) {
             getSecretCodeArray()[i] = Character.getNumericValue(str.charAt(i));
         }
     }
