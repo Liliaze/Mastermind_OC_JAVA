@@ -6,7 +6,6 @@ import game.constante.GameMode;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -37,10 +36,13 @@ public class GameState {
     private GameState() {
         gameChoosed = GameType.EXIT;
         modeChoosed = GameMode.EXIT;
+
         try {
             loadProperties();
         } catch (IOException e) {
-            e.printStackTrace();
+            myFirstLogger.error(e);
+            GameColor.RED.print("Sorry, one error is encounter in LoadProperties, please consult the logs, we need quit the game");
+            Menu.displayGoodBye();
         }
     }
 
@@ -63,8 +65,8 @@ public class GameState {
                 GameColor.RED.print("Sorry, one file is missing, error is encounter");
                 Menu.displayGoodBye();
             }
-            nbEltInSecretCodePlusOrMinus = checkPropertyValue(Integer.parseInt(prop.getProperty("nbEltPlusOrMinus")), 4, 0, 10);
-            nbEltInSecretCodeMastermind = checkPropertyValue(Integer.parseInt(prop.getProperty("nbEltMastermind")), 4, 0, 10);
+            nbEltInSecretCodePlusOrMinus = checkPropertyValue(Integer.parseInt(prop.getProperty("nbEltPlusOrMinus")), 4, 1, 10);
+            nbEltInSecretCodeMastermind = checkPropertyValue(Integer.parseInt(prop.getProperty("nbEltMastermind")), 4, 1, 10);
             nbColorInSecretCodeMastermind = checkPropertyValue(Integer.parseInt(prop.getProperty("nbColorMastermind")), 4, 4, 10);
             nbTryMaxPlusOrMinus = checkPropertyValue(Integer.parseInt(prop.getProperty("nbTryMaxPlusOrMinus")), 8, 1, Integer.MAX_VALUE);
             nbTryMaxMastermind = checkPropertyValue(Integer.parseInt(prop.getProperty("nbTryMaxMastermind")), 15, 1, Integer.MAX_VALUE);
@@ -75,16 +77,18 @@ public class GameState {
                 playerName = "ALTHEA";
 
         } catch (Exception e) {
-            System.out.println("Exception: " + e);
+            myFirstLogger.error(e);
+            GameColor.RED.print("Sorry, one error is encounter in LoadProperties, please consult the logs, we need quit the game");
+            Menu.displayGoodBye();
         } finally {
             inputStream.close();
         }
     }
 
     private int checkPropertyValue(int valueToTest, int defaultValue, int min, int max) {
-        if (valueToTest < min || valueToTest > max)
-            return defaultValue;
-        else
+        if (valueToTest <= max && valueToTest >= min)
             return valueToTest;
+        else
+            return defaultValue;
     }
 }

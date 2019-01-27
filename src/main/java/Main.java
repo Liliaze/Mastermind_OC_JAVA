@@ -47,14 +47,20 @@ public class Main {
                         "|  |    |__] |__| |__| |__/   |     ___]    |__] |  | |  | |___ \n");
 
         //main game loop
-        do {
-            menuGame.displayWelcomeMenu();
+        try {
             do {
-                new Game();
-                again = menuGame.again();
-            } while (again == 1);
-            GameState.reinitAllGameState();
-        } while (again == 2);
+                menuGame.displayWelcomeMenu();
+                do {
+                    new Game();
+                    again = menuGame.again();
+                } while (again == 1);
+                GameState.reinitAllGameState();
+            } while (again == 2);
+        }
+        catch (Exception e){
+            GameColor.RED.print("Sorry, one error is encounter, please consult the logs, we need quit the game");
+            myFirstLogger.error(e);
+        }
 
         //before quit the game
         menuGame.displayGoodBye();
