@@ -58,10 +58,11 @@ mvn clean install -f pom.xml
 ```
 
 ***run***
-```sh 
+```sh
+//classic run :
 Java -jar target/Mastermind-1.0-SNAPSHOT.jar
-or
+//to run in developper mode :
 Java -jar target/Mastermind-1.0-SNAPSHOT.jar true
-or
+//to run without developper mode :
 Java -jar target/Mastermind-1.0-SNAPSHOT.jar false
 ```
